@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aqeel Abdul Rahman · UI/UX & Product Designer</title>
+<meta name="description" content="Aqeel Abdul Rahman, UI/UX and product designer. Dashboards, maps and workflows for complex products.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Aqeel Abdul Rahman · UI/UX & Product Designer">
+<meta property="og:description" content="I make dense data easy to read. Dashboards, maps and workflows for complex products.">
+<meta property="og:image" content="images/aqeel.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0b0c'/%3E%3Crect x='9' y='9' width='14' height='14' rx='3' fill='%23ee9a4d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+  /* Runs first: enables the JS-only animation states, with a failsafe so the hero never stays hidden. */
+  document.documentElement.classList.add('js');
+  setTimeout(function(){document.documentElement.classList.add('ready')},3500);
+  /* Theme: dark by default, light only if the visitor picked it. Set before paint to avoid a flash. */
+  (function(){var t='dark';try{if(localStorage.getItem('ar-theme-v3')==='light')t='light'}catch(e){}document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<style>
+/* Dark is the default theme; light overrides below. Accent is a yellow → Claude-orange blend:
+   --grad for fills, --accent for solid fills, --accent-text for accent text and thin strokes. */
+:root{
+  --bg:#0b0b0c; --bg-2:#0f0f11; --card:#141416; --card-2:#1b1b1e;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.15);
+  --fg:#f3f2ee; --muted:#a3a29d; --faint:#62615d;
+  --accent:#ee9a4d; --accent-ink:#1a0f06; --accent-text:#f2a65a; --accent-soft:rgba(238,154,77,.14);
+  --grad:linear-gradient(110deg,#f6c445 0%,#ee9a4d 50%,#d97757 100%);
+  --grad-text:linear-gradient(110deg,#f6c445,#d97757);
+  --glass:rgba(20,20,22,.6); --panel:rgba(22,22,25,.78); --overlay:rgba(11,11,12,.75);
+  --ring:rgba(255,255,255,.35); --stroke:rgba(255,255,255,.28);
+  --shadow:0 40px 80px -30px rgba(0,0,0,.8); --shade:#000;
+  --portrait:linear-gradient(160deg,#1b1b1e,#0f0f11); --glow:rgba(238,140,70,.16);
+  --dot:255,255,255; --dot-a:.075; --dot-hi:242,166,90;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f4f3ef; --bg-2:#ecebe6; --card:#ffffff; --card-2:#eeede8;
+  --line:rgba(0,0,0,.09); --line-2:rgba(0,0,0,.16);
+  --fg:#111112; --muted:#57564f; --faint:#8b8a84;
+  --accent:#ee9a4d; --accent-ink:#1a0f06; --accent-text:#b4501f; --accent-soft:rgba(217,119,87,.14);
+  --grad-text:linear-gradient(110deg,#b7780a,#b4501f);
+  --glass:rgba(255,255,255,.72); --panel:rgba(255,255,255,.85); --overlay:rgba(255,255,255,.82);
+  --ring:rgba(0,0,0,.3); --stroke:rgba(0,0,0,.25);
+  --shadow:0 40px 80px -30px rgba(40,30,20,.28); --shade:rgba(0,0,0,.4);
+  --portrait:linear-gradient(160deg,#ffffff,#e6e5df); --glow:rgba(240,150,60,.22);
+  --dot:0,0,0; --dot-a:.1; --dot-hi:180,80,31;
+  color-scheme:light;
+}
+:root{
+  --low:#3fb37f; --mid:#e8b339; --high:#f07a3a; --crit:#e5484d;
+  --display:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --wrap:1320px; --gut:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box}
+html{overflow-x:clip;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+::selection{background:var(--accent);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;letter-spacing:-.035em;margin:0;text-wrap:balance}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--accent-text);background:var(--grad-text);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-right:.08em;margin-right:-.04em}
+.mono{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* lenis */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+html.modal-open{overflow:hidden}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- loader ---------- */
+.loader{display:none}
+.js .loader{display:flex;position:fixed;inset:0;z-index:400;background:var(--bg);flex-direction:column;justify-content:flex-end;padding:var(--gut);
+  clip-path:inset(0 0 0 0);transition:clip-path 1s var(--ease);animation:loaderFailsafe .01s 4.5s forwards}
+.loader.done{clip-path:inset(0 0 100% 0)}
+@keyframes loaderFailsafe{to{visibility:hidden}}
+.loader-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.loader-name{font:500 clamp(18px,2.4vw,28px)/1.1 var(--display);letter-spacing:-.02em;color:var(--muted)}
+.loader-name b{color:var(--fg);font-weight:500}
+.loader-count{font:400 clamp(72px,16vw,220px)/.8 var(--display);letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.loader-bar{height:1px;background:var(--line);margin-top:24px;overflow:hidden}
+.loader-bar i{display:block;height:100%;background:var(--accent-text);transform:scaleX(0);transform-origin:left}
+
+/* ---------- cursor ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:350;pointer-events:none;display:none}
+.c-ring{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;border:1px solid var(--ring);display:grid;place-items:center;
+  transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background .3s,border-color .3s,opacity .3s;opacity:0}
+.cursor.on .c-ring{opacity:1}
+.cursor.hov .c-ring{width:56px;height:56px;margin:-28px 0 0 -28px;border-color:var(--accent);background:var(--accent-soft)}
+.cursor.lab .c-ring{width:96px;height:96px;margin:-48px 0 0 -48px;background:var(--grad);border-color:transparent}
+.c-label{font:600 12px/1 var(--body);color:var(--accent-ink);opacity:0;transform:scale(.6);transition:opacity .3s,transform .45s var(--ease);white-space:nowrap}
+.cursor.lab .c-label{opacity:1;transform:none}
+@media (hover:hover) and (pointer:fine){.cursor{display:block}}
+html.modal-open .cursor{display:none}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 10px 0 24px;border-radius:999px;font:600 15px/1 var(--body);border:1px solid var(--line-2);background:transparent;cursor:pointer;white-space:nowrap;
+  transition:background .4s var(--ease),border-color .4s,color .4s}
+.btn.plain{padding:0 24px}
+.btn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:hover .ic{background:var(--accent);color:var(--accent-ink)}
+.btn .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:var(--bg);transition:background .4s,color .4s}
+.btn .ic svg{width:15px;height:15px}
+.btn.primary{background:var(--grad);color:var(--accent-ink);border-color:transparent}
+.btn.primary .ic{background:var(--accent-ink);color:var(--accent)}
+.btn.primary:hover{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.btn.primary:hover .ic{background:var(--accent);color:var(--accent-ink)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px var(--gut);transition:transform .6s var(--ease)}
+.nav.hide{transform:translateY(-120%)}
+.nav::before{content:"";position:absolute;inset:0 0 -24px;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,var(--bg) 35%,transparent)}
+.nav-in{position:relative;max-width:calc(var(--wrap) - 2*var(--gut));margin:0 auto;display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;height:48px;font:400 30px/1 var(--serif);letter-spacing:-.01em;color:var(--fg);transition:color .3s}
+.brand:hover{color:var(--accent-text)}
+.pill{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:2px;padding:5px;border-radius:999px;
+  background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line)}
+.pill a{position:relative;z-index:1;font:500 14px/1 var(--body);color:var(--muted);padding:12px 16px;border-radius:999px;transition:color .3s}
+.pill a.on,.pill a:hover{color:var(--fg)}
+.pill .ind{position:absolute;left:0;top:5px;bottom:5px;border-radius:999px;background:var(--card-2);border:1px solid var(--line);opacity:0;
+  transition:transform .55s var(--ease),width .55s var(--ease),opacity .3s}
+.nav-r{display:flex;align-items:center;gap:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(238,154,77,.5);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(238,154,77,0)}100%{box-shadow:0 0 0 0 rgba(238,154,77,0)}}
+.nav .btn{height:48px}
+.nav-r{margin-left:auto}
+.theme-btn{position:relative;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);cursor:pointer;display:grid;place-items:center;overflow:hidden;color:var(--fg);flex-shrink:0;transition:border-color .3s}
+.theme-btn:hover{border-color:var(--fg)}
+.theme-btn svg{position:absolute;width:19px;height:19px;transition:transform .7s var(--ease),opacity .4s}
+.theme-btn .sun{transform:translateY(160%) rotate(-90deg);opacity:0}
+[data-theme="dark"] .theme-btn .sun{transform:none;opacity:1}
+[data-theme="dark"] .theme-btn .moon{transform:translateY(-160%) rotate(90deg);opacity:0}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+.menu-btn{display:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);cursor:pointer;place-items:center}
+.menu-btn{position:relative}
+.menu-btn span{position:absolute;left:14px;top:20px;width:18px;height:1.5px;background:var(--fg);transition:background .4s,color .4s}
+.menu-btn span+span{top:26px}
+.menu-open .menu-btn span:first-child{transform:translateY(3px) rotate(45deg)}
+.menu-open .menu-btn span:last-child{transform:translateY(-3px) rotate(-45deg)}
+@media (max-width:1120px){.pill,.nav .btn{display:none}.menu-btn{display:grid;margin-left:auto}}
+
+.menu{position:fixed;inset:0;z-index:99;background:var(--bg);display:flex;flex-direction:column;justify-content:flex-end;padding:100px var(--gut) 40px;
+  clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease);visibility:hidden}
+.menu-open .menu{clip-path:inset(0);visibility:visible}
+.menu a.big{display:block;overflow:hidden;font:500 clamp(44px,12vw,72px)/1.05 var(--display);letter-spacing:-.04em;border-bottom:1px solid var(--line);padding:8px 0}
+.menu a.big span{display:inline-block;transform:translateY(105%);transition:transform .8s var(--ease)}
+.menu-open .menu a.big span{transform:none}
+.menu a.big:nth-child(2) span{transition-delay:.05s}.menu a.big:nth-child(3) span{transition-delay:.1s}.menu a.big:nth-child(4) span{transition-delay:.15s}.menu a.big:nth-child(5) span{transition-delay:.2s}.menu a.big:nth-child(6) span{transition-delay:.25s}
+.menu .menu-foot{display:flex;justify-content:space-between;gap:16px;margin-top:28px;flex-wrap:wrap}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;padding-top:clamp(110px,14vh,150px);overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 45%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse 80% 70% at 60% 45%,#000 30%,transparent 80%)}
+.blob{position:absolute;width:60vw;height:60vw;max-width:900px;max-height:900px;right:-15vw;top:-20vw;border-radius:50%;
+  background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(10px);pointer-events:none;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-8vw,10vw) scale(1.1)}}
+.hero>.wrap{width:100%}
+.hero-grid{position:relative;flex:1;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(32px,5vw,80px);align-items:center;padding-bottom:40px}
+.hero-meta{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-meta .ln-d{width:36px;height:1px;background:var(--accent-text)}
+.hero h1{font-size:clamp(46px,6.8vw,112px);line-height:.94;letter-spacing:-.05em;font-weight:500;margin-bottom:32px}
+.hero h1 em{font-size:1.08em;padding-right:.04em}
+.ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.ln>span{display:inline-block}
+.js .hero .ln>span{transform:translateY(110%) rotate(3deg);transform-origin:left bottom;transition:transform 1.3s var(--ease)}
+.ready .hero .ln>span{transform:none}
+.hero .ln:nth-child(2)>span{transition-delay:.08s}.hero .ln:nth-child(3)>span{transition-delay:.16s}
+.lede{font-size:clamp(17px,1.35vw,19px);line-height:1.6;color:var(--muted);max-width:50ch;margin:0 0 36px}
+.lede strong{color:var(--fg);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.js [data-intro]{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1.2s var(--ease);transition-delay:var(--d,0s)}
+.ready [data-intro]{opacity:1;transform:none}
+
+/* hero visual: photo with a gradient card behind it, floating chips and a spinning badge (all mouse-parallax) */
+.stage{position:relative;width:100%;max-width:480px;justify-self:end;margin-right:clamp(0px,2vw,24px);--px:0;--py:0}
+.photo-back{position:absolute;inset:5% -5% -5% 5%;border-radius:34px;background:var(--grad);
+  transform:translate3d(calc(var(--px)*-16px),calc(var(--py)*-14px),0) rotate(4deg)}
+.photo{position:relative;margin:0;aspect-ratio:4/5;border-radius:34px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);
+  transform:translate3d(calc(var(--px)*8px),calc(var(--py)*8px),0)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform:scale(1.06) translate3d(calc(var(--px)*-8px),calc(var(--py)*-8px),0)}
+.js .photo-back{opacity:0;rotate:-6deg;transition:opacity 1.2s var(--ease) .5s,rotate 1.6s var(--ease) .5s}
+.ready .photo-back{opacity:1;rotate:0deg}
+.js .photo{clip-path:inset(100% 0 0 0 round 34px);transition:clip-path 1.6s var(--ease) .25s}
+.ready .photo{clip-path:inset(0 0 0 0 round 34px)}
+.js .photo img{scale:1.3;transition:scale 2.2s var(--ease) .25s}
+.ready .photo img{scale:1}
+.fl{position:absolute;z-index:2;transform:translate3d(calc(var(--px)*var(--dx,20px)),calc(var(--py)*var(--dy,16px)),0)}
+.fl>*{animation:bob 6s ease-in-out infinite alternate;animation-delay:var(--bd,0s)}
+@keyframes bob{to{transform:translateY(-10px)}}
+.js .stage .fl{opacity:0;scale:.9;transition:opacity 1s var(--ease),scale 1.2s var(--ease)}
+.ready .stage .fl{opacity:1;scale:1}
+.ready .fl.c1{transition-delay:.9s}.ready .fl.c2{transition-delay:1.05s}.ready .fl.spin{transition-delay:1.2s}
+.chip{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px;background:var(--panel);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--line-2);box-shadow:var(--shadow);font-size:13px;white-space:nowrap}
+.chip b{display:block;font:500 15px/1.2 var(--display);letter-spacing:-.02em}
+.chip small{display:block;font:400 11px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em}
+.chip .ico{width:36px;height:36px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:var(--accent-ink);flex-shrink:0}
+.chip .ico svg{width:18px;height:18px}
+.c1{left:-12%;bottom:12%;--dx:30px;--dy:22px;--bd:-2s}
+.c2{right:-10%;top:12%;--dx:26px;--dy:20px;--bd:-4s}
+.spin{left:-9%;top:-7%;--dx:36px;--dy:30px;width:112px;height:112px;border-radius:50%;display:block}
+.spin>span{position:relative;display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--panel);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line-2)}
+.spin svg.ring-t{position:absolute;inset:0;width:100%;height:100%;animation:rot 16s linear infinite}
+.spin svg.ring-t text{font:500 9.6px var(--mono);letter-spacing:.2em;fill:var(--fg);text-transform:uppercase}
+.spin i{width:38px;height:38px;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:var(--accent-ink);transition:transform .6s var(--ease)}
+.spin:hover i{transform:rotate(45deg) scale(1.1)}
+.spin i svg{width:16px;height:16px}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+.hero-foot{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px 28px;border-top:1px solid var(--line)}
+.scroll-cue{display:flex;align-items:center;gap:12px}
+.scroll-cue i{position:relative;width:1px;height:28px;background:var(--line-2);overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--accent-text);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{to{top:100%}}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;padding-top:8px}
+  .stage{justify-self:center;max-width:420px;margin:24px auto 0}
+
+}
+@media (max-width:480px){.c1{left:-4%;bottom:8%}.c2{right:-4%;top:8%}.spin{left:-2%;top:-5%;width:92px;height:92px}.chip{padding:10px 12px}.chip b{font-size:14px}}
+
+/* ---------- marquee ---------- */
+.mq{padding-block:clamp(28px,4vw,48px);overflow:hidden;border-bottom:1px solid var(--line)}
+.mq-row{display:flex;overflow:hidden}
+.mq-track{display:flex;flex-shrink:0;width:max-content;animation:mq 46s linear infinite}
+.mq-row.rev .mq-track{animation-direction:reverse}
+.gsap .mq-track{animation:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq-track span{display:flex;align-items:center;gap:.5em;padding-right:.5em;font:500 clamp(40px,7vw,104px)/1.08 var(--display);letter-spacing:-.045em;white-space:nowrap}
+.mq-track span::after{content:"✦";font-size:.4em;color:var(--accent-text)}
+.mq-row.rev span{color:transparent;-webkit-text-stroke:1px var(--stroke)}
+.mq-row.rev span em{-webkit-text-stroke:0;color:var(--accent-text)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:clamp(28px,4vw,48px) clamp(16px,2vw,32px);border-left:1px solid var(--line);position:relative;overflow:hidden}
+.stat:first-child{border-left:0}
+.stat b{display:block;font:500 clamp(48px,6vw,88px)/1 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.stat b sup{font-size:.4em;color:var(--accent-text);vertical-align:top;margin-left:4px;letter-spacing:0}
+.stat b.word{font-size:clamp(34px,3.6vw,56px);line-height:1;padding-block:clamp(7px,1.2vw,16px)}
+.stat b.word em{font-size:1.1em}
+.stat span{display:block;margin-top:14px;font-size:14px;color:var(--muted);max-width:22ch}
+.stat::before{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--accent-text);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.stat:hover::before{transform:scaleX(1)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(96px,13vw,180px)}
+.sec-top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:clamp(48px,7vw,96px)}
+.label{display:flex;gap:10px;align-items:center;margin-bottom:22px}
+.label b{color:var(--accent-text);font-weight:500}
+.h2{font-size:clamp(44px,7.4vw,124px);line-height:.92;letter-spacing:-.055em}
+.h2 em{font-size:1.06em}
+.count{font:400 clamp(40px,6vw,96px)/1 var(--serif);font-style:italic;color:var(--faint)}
+@media (max-width:700px){.sec-top{grid-template-columns:1fr}.count{display:none}}
+
+/* reveals (activated by JS only) */
+.reveal-on [data-r]{opacity:0;transform:translateY(48px);transition:opacity 1.1s var(--ease),transform 1.3s var(--ease);transition-delay:var(--d,0s)}
+.reveal-on [data-r].in{opacity:1;transform:none}
+.reveal-on [data-r="lines"]{opacity:1;transform:none}
+.reveal-on [data-r="lines"] .ln>span{transform:translateY(110%);transition:transform 1.3s var(--ease)}
+.reveal-on [data-r="lines"] .ln:nth-child(2)>span{transition-delay:.08s}
+.reveal-on [data-r="lines"] .ln:nth-child(3)>span{transition-delay:.16s}
+.reveal-on [data-r="lines"].in .ln>span{transform:none}
+.reveal-on [data-r="clip"]{opacity:1;transform:none;clip-path:inset(14% 10% 14% 10% round 24px);transition:clip-path 1.6s var(--ease)}
+.reveal-on [data-r="clip"].in{clip-path:inset(0 0 0 0 round 24px)}
+
+/* ---------- about ---------- */
+.scrub{font:500 clamp(28px,3.8vw,56px)/1.12 var(--display);letter-spacing:-.035em;max-width:24ch;margin:0 0 clamp(64px,9vw,120px)}
+.scrub .w{opacity:1}
+.gsap .scrub .w{opacity:.14}
+.scrub em{font-size:1.06em}
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,96px);align-items:start}
+.about-copy p{font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:var(--muted);margin:0 0 22px;max-width:56ch}
+.about-copy p strong{color:var(--fg);font-weight:500}
+.facts{margin:6px 0 0;border-top:1px solid var(--line)}
+.fact{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);transition:padding .5s var(--ease)}
+.fact:hover{padding-left:12px}
+.fact dt{font:500 11px/1.8 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
+.fact dd{margin:0;font-size:16px}
+@media (max-width:860px){.about{grid-template-columns:1fr}.fact{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- case stack ---------- */
+.stack{display:grid;gap:clamp(24px,4vh,48px)}
+.case-card{position:sticky;top:calc(96px + var(--i)*16px)}
+.cc{position:relative;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(24px,4vw,56px);min-height:min(660px,calc(100svh - 140px));padding:clamp(20px,3vw,40px);
+  background:var(--card);border:1px solid var(--line);border-radius:32px;overflow:hidden;transform-origin:center top;cursor:pointer;will-change:transform}
+.cc-shade{position:absolute;inset:0;background:var(--shade);opacity:0;pointer-events:none;z-index:3;border-radius:inherit}
+.cc-txt{display:flex;flex-direction:column;justify-content:space-between;gap:28px;position:relative;z-index:1}
+.cc-num{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.cc-num .mono{text-align:right}
+.cc-num b{font:400 clamp(56px,6vw,96px)/1 var(--serif);font-style:italic;color:var(--accent-text)}
+.cc h3{font-size:clamp(32px,3.6vw,56px);line-height:1;letter-spacing:-.045em;margin:14px 0 18px}
+.cc p{color:var(--muted);margin:0;max-width:44ch;font-size:16px}
+.kv{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:10px 32px;margin:0;padding:22px 0 0;border-top:1px solid var(--line)}
+.kv dt{font:500 10px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
+.kv dd{margin:4px 0 0;font-size:14px}
+.cc-img{position:relative;border-radius:22px;overflow:hidden;background:var(--card-2);min-height:280px}
+.cc-img img,.cc-img video{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.cc:hover .cc-img img,.cc:hover .cc-img video{transform:scale(1.05)}
+.drib{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font:500 14px/1 var(--body);padding:12px 16px;border-radius:999px;border:1px solid var(--line-2);position:relative;z-index:4;transition:background .4s var(--ease),color .4s,border-color .4s}
+.drib svg{width:14px;height:14px;transition:background .4s,color .4s}
+.drib:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.drib:hover svg{transform:translate(2px,-2px)}
+.cv-body>.drib{margin-top:24px}
+.cv-body figure video{width:100%;display:block;background:var(--card-2)}
+.cc-img .tag{position:absolute;left:16px;top:16px;z-index:1;font:500 12px/1 var(--body);background:var(--overlay);backdrop-filter:blur(10px);padding:10px 14px;border-radius:999px;border:1px solid var(--line)}
+@media (max-width:860px){.case-card{position:relative;top:0}.cc{grid-template-columns:1fr;min-height:0}.cc-img{order:-1;aspect-ratio:4/3;min-height:0}.kv{grid-template-columns:1fr 1fr}}
+
+/* ---------- horizontal ---------- */
+.hs{padding-block:clamp(48px,6vw,96px) clamp(96px,12vw,160px)}
+.hs-pin{overflow:hidden}
+.hs-track{display:flex;gap:20px;padding-inline:var(--gut);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hs-track::-webkit-scrollbar{display:none}
+.hs-on{padding:0}
+.hs-on .hs-pin{height:100vh;display:flex;flex-direction:column;justify-content:center}
+.hs-on .hs-track{overflow:visible;width:max-content;padding-inline:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut))) var(--gut)}
+.hs-intro{flex:0 0 clamp(280px,30vw,440px);display:flex;flex-direction:column;justify-content:space-between;padding-right:clamp(16px,3vw,48px);scroll-snap-align:start}
+.hs-intro p{color:var(--muted);max-width:32ch;margin:24px 0 0}
+.hs-progress{height:2px;background:var(--line);margin-top:32px;max-width:240px;overflow:hidden}
+.hs-progress i{display:block;height:100%;background:var(--accent-text);transform:scaleX(0);transform-origin:left}
+.mini{flex:0 0 clamp(280px,34vw,500px);scroll-snap-align:start;display:flex;flex-direction:column;gap:18px}
+.mini .im{aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:var(--card-2);border:1px solid var(--line)}
+.mini img,.mini video{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.mini:hover img,.mini:hover video{transform:scale(1.06)}
+.mini .out{display:inline-block;font-size:.75em;color:var(--accent-text);transition:background .4s,color .4s}
+.mini:hover .out{transform:translate(3px,-3px)}
+.mini .mt{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mini h4{font-size:clamp(22px,2vw,28px);letter-spacing:-.03em}
+.mini p{margin:6px 0 0;color:var(--muted);font-size:15px;max-width:40ch}
+@media (max-width:860px){.hs-intro{flex-basis:78vw;justify-content:flex-start}.hs-progress{display:none}}
+
+/* ---------- experience ---------- */
+.xp{border-top:1px solid var(--line)}
+.xp-item{border-bottom:1px solid var(--line);position:relative}
+.xp-head{width:100%;display:grid;grid-template-columns:200px 1fr 1fr 48px;gap:24px;align-items:center;padding:30px 0;background:none;border:0;text-align:left;cursor:pointer;position:relative}
+.xp-head::before{content:"";position:absolute;inset:0 calc(-1*var(--gut));background:var(--card);transform:scaleY(0);transform-origin:bottom;transition:transform .6s var(--ease);z-index:-1}
+.xp-head:hover::before,.xp-item.open .xp-head::before{transform:scaleY(1)}
+.xp-item{isolation:isolate}
+.xp-when{font:400 13px/1.4 var(--mono);color:var(--muted)}
+.xp-role{font:500 clamp(22px,2.6vw,36px)/1.1 var(--display);letter-spacing:-.035em;transition:transform .6s var(--ease)}
+.xp-head:hover .xp-role{transform:translateX(10px)}
+.xp-co{font-size:15px;color:var(--muted)}
+.xp-plus{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;transition:transform .6s var(--ease),background .4s,border-color .4s,color .4s}
+.xp-plus::before{content:"+";font:300 24px/1 var(--body)}
+.xp-item.open .xp-plus{transform:rotate(135deg);background:var(--grad);border-color:transparent;color:var(--accent-ink)}
+.xp-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.xp-item.open .xp-body{grid-template-rows:1fr}
+.xp-body>div{overflow:hidden;position:relative}
+.xp-item::after{content:"";position:absolute;inset:0 calc(-1*var(--gut));background:var(--card);z-index:-2;opacity:0;transition:opacity .6s var(--ease)}
+.xp-item.open::after{opacity:1}
+.xp ul{margin:0;padding:0 0 32px calc(200px + 24px);list-style:none;max-width:calc(224px + 70ch)}
+.xp li{position:relative;padding-left:22px;margin-bottom:10px;color:var(--muted)}
+.xp li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--accent-text)}
+@media (max-width:860px){.xp-head{grid-template-columns:1fr 48px;gap:6px 16px}.xp-when{grid-column:1/-1}.xp-co{grid-column:1}.xp-plus{grid-row:2/4;grid-column:2}.xp ul{padding-left:0}}
+
+/* ---------- skills + certifications ---------- */
+.glow-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:26px;transition:border-color .4s,transform .7s var(--ease)}
+.glow-card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),var(--accent-soft),transparent 60%)}
+.glow-card:hover{border-color:var(--line-2)}
+.glow-card:hover::before{opacity:1}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.skill-card{padding:clamp(24px,3vw,40px)}
+.sk-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
+.sk-head h3{font:400 clamp(30px,2.8vw,42px)/1.05 var(--serif);letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;position:relative}
+.chips li{font:500 14px/1 var(--body);padding:11px 14px;border-radius:12px;background:var(--card-2);border:1px solid transparent;color:var(--fg);transition:border-color .3s,color .3s,transform .5s var(--ease)}
+.chips li:hover{border-color:var(--accent-text);color:var(--accent-text);transform:translateY(-2px)}
+.tools-label{margin:clamp(48px,6vw,72px) 0 18px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.tool{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border-radius:16px;border:1px solid var(--line);background:var(--card);font:500 15px/1 var(--body);
+  transition:border-color .3s,transform .5s var(--ease),background .3s}
+.tool:hover{border-color:var(--line-2);background:var(--card-2);transform:translateY(-3px)}
+.ti{width:24px;height:24px;flex-shrink:0;background:var(--c);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.lg{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.lg.sq{border-radius:6px}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cert{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;min-height:260px}
+.cert-logo{align-self:flex-start;height:60px;padding:0 18px;border-radius:16px;background:#fff;display:grid;place-items:center;margin-bottom:auto}
+.cert-logo img{display:block;width:auto;max-width:110px}
+.cert h3{font:400 clamp(26px,2.2vw,32px)/1.12 var(--serif);letter-spacing:-.01em;margin-top:28px}
+.cert p{margin:0;color:var(--accent-text)}
+@media (max-width:900px){.skills,.certs{grid-template-columns:1fr}.cert{min-height:0}}
+
+/* ---------- process ---------- */
+.steps-wrap{position:relative}
+.steps-line{height:1px;background:var(--line);position:relative;margin-bottom:0}
+.steps-line i{position:absolute;inset:0;background:var(--accent-text);transform:scaleX(1);transform-origin:left}
+.gsap .steps-line i{transform:scaleX(0)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
+.step{padding-top:28px;position:relative}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--accent-text)}
+.step b{font:400 clamp(48px,4.4vw,72px)/1 var(--serif);font-style:italic;color:var(--faint);display:block;transition:color .4s}
+.step:hover b{color:var(--accent-text)}
+.step h3{font-size:clamp(22px,1.9vw,28px);letter-spacing:-.03em;margin:18px 0 10px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;row-gap:40px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ---------- photography ---------- */
+.photos{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(120px,14vw,200px);gap:14px}
+.ph{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(150deg,var(--card-2),var(--bg-2));display:grid;place-items:center}
+.ph span{font:500 11px/1 var(--mono);color:var(--faint);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ph:hover img{transform:scale(1.06)}
+.ph{margin:0}
+.ph:nth-child(1){grid-column:1/5;grid-row:1/4}.ph:nth-child(2){grid-column:5/9;grid-row:1/3}.ph:nth-child(3){grid-column:9/13;grid-row:1/3}
+.ph:nth-child(4){grid-column:5/9;grid-row:3/4}.ph:nth-child(5){grid-column:9/13;grid-row:3/4}
+.ph figcaption{position:absolute;left:12px;right:12px;bottom:12px;z-index:1;font:500 13px/1.3 var(--body);color:#fff;padding:10px 14px;border-radius:12px;
+  background:rgba(11,11,12,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .6s var(--ease)}
+.ph:hover figcaption{opacity:1;transform:none}
+@media (hover:none){.ph figcaption{opacity:1;transform:none}}
+@media (max-width:700px){.photos{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.ph:nth-child(n){grid-column:auto;grid-row:auto}.ph:nth-child(1){grid-row:span 2}.ph:nth-child(4),.ph:nth-child(5){grid-column:span 2}}
+
+/* ---------- contact ---------- */
+.contact{position:relative;padding-block:clamp(96px,13vw,180px) clamp(40px,5vw,64px);overflow:hidden;border-top:1px solid var(--line)}
+.contact .glow{position:absolute;left:50%;top:40%;width:80vw;height:80vw;max-width:1100px;max-height:1100px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 60%);pointer-events:none}
+.contact h2{font-size:clamp(56px,11vw,190px);line-height:.88;letter-spacing:-.06em}
+.contact-lede{color:var(--muted);font-size:clamp(17px,1.4vw,20px);max-width:48ch;margin:36px 0 48px}
+.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding-block:28px;border-block:1px solid var(--line)}
+.mail{font:500 clamp(22px,3.4vw,48px)/1.1 var(--display);letter-spacing:-.035em;word-break:break-all;position:relative}
+.mail::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent-text);transform:scaleX(0);transform-origin:right;transition:transform .7s var(--ease)}
+.mail:hover::after{transform:scaleX(1);transform-origin:left}
+.mail-row .btn{margin-left:auto}
+.clist{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:0;padding-top:32px}
+.clist dt{font:500 10px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:6px}
+.clist dd{margin:0;font-size:16px}
+.clist a dd{display:inline-flex;gap:6px;transition:color .3s}
+.clist a:hover dd{color:var(--accent-text)}
+@media (max-width:760px){.clist{grid-template-columns:1fr 1fr}.mail-row .btn{margin-left:0}}
+footer{border-top:1px solid var(--line);padding-block:28px 36px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:400 12px/1.6 var(--mono);color:var(--faint)}
+.totop{background:none;border:0;cursor:pointer;color:var(--muted);font:inherit;display:flex;gap:8px;align-items:center}
+.totop:hover{color:var(--accent-text)}
+
+/* ---------- case view ---------- */
+dialog.cv{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bg);color:var(--fg);overflow:hidden}
+dialog.cv::backdrop{background:transparent}
+dialog.cv[open]{animation:cvIn 1s var(--ease) both}
+dialog.cv.closing{animation:cvOut .7s var(--ease) both}
+@keyframes cvIn{from{clip-path:inset(100% 0 0 0 round 40px)}to{clip-path:inset(0 0 0 0 round 0)}}
+@keyframes cvOut{from{clip-path:inset(0 0 0 0)}to{clip-path:inset(0 0 100% 0 round 40px)}}
+.cv-scroll{height:100%;overflow-y:auto;overscroll-behavior:contain}
+.cv-bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px var(--gut);background:var(--overlay);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.cv-bar .mono{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cv-close{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:transparent;cursor:pointer;display:grid;place-items:center;flex-shrink:0;transition:transform .6s var(--ease),background .3s,color .3s}
+.cv-close:hover{transform:rotate(90deg);background:var(--fg);color:var(--bg)}
+.cv-close svg{width:18px;height:18px}
+.cv-prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent-text);transform:scaleX(0);transform-origin:left}
+.cv-body{max-width:1120px;margin:0 auto;padding:clamp(48px,8vw,112px) var(--gut) 120px}
+.cv-body>*{animation:cvUp 1.1s var(--ease) both}
+.cv-body>:nth-child(1){animation-delay:.35s}.cv-body>:nth-child(2){animation-delay:.42s}.cv-body>:nth-child(3){animation-delay:.5s}.cv-body>:nth-child(4){animation-delay:.58s}.cv-body>:nth-child(5){animation-delay:.66s}.cv-body>:nth-child(n+6){animation-delay:.72s}
+@keyframes cvUp{from{opacity:0;transform:translateY(40px)}}
+.cv-body .eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin:0}
+.cv-body h2{font-size:clamp(44px,7vw,108px);line-height:.94;letter-spacing:-.055em;margin:20px 0 28px;max-width:14ch}
+.cv-body .intro{font:400 clamp(20px,2vw,26px)/1.45 var(--body);color:var(--muted);max-width:52ch;margin:0 0 48px;letter-spacing:-.01em}
+.cv-body figure{margin:48px 0;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.cv-body figure img{width:100%}
+.cv-body figcaption{font:400 12px/1.5 var(--mono);color:var(--faint);padding:14px 18px}
+.cv-body h3{font-size:clamp(28px,3vw,44px);letter-spacing:-.04em;margin:80px 0 18px}
+.cv-body p,.cv-body li{color:var(--muted);font-size:18px;line-height:1.65;max-width:64ch}
+.cv-body ul{padding-left:20px}
+.cv-body li{margin-bottom:12px}
+.cv-body li::marker{color:var(--accent-text)}
+.cv-body strong{color:var(--fg);font-weight:500}
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-block:1px solid var(--line);margin:0}
+.overview div{padding:20px 16px 20px 0}
+.overview dt{font:500 10px/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
+.overview dd{margin:6px 0 0;font-size:15px}
+@media (max-width:700px){.overview{grid-template-columns:1fr 1fr}}
+.callout{margin:56px 0;padding:40px clamp(24px,4vw,56px);border-radius:24px;background:var(--card);border:1px solid var(--line);
+  font:400 clamp(30px,3.6vw,52px)/1.1 var(--serif);font-style:italic;color:var(--fg);letter-spacing:-.02em;position:relative;overflow:hidden}
+.callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent-text)}
+.decisions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.decision{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;transition:border-color .4s,transform .6s var(--ease)}
+.decision:hover{border-color:var(--accent-text);transform:translateY(-4px)}
+.decision h4{margin:0 0 10px;font:500 20px/1.25 var(--display);letter-spacing:-.025em;color:var(--fg)}
+.decision p{margin:0;font-size:16px}
+@media (max-width:700px){.decisions{grid-template-columns:1fr}}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:28px 0}
+.flow span{font:500 13px/1 var(--mono);padding:14px 16px;border:1px solid var(--line-2);border-radius:14px;background:var(--card)}
+.flow i{color:var(--accent-text);font-style:normal}
+.next{margin-top:96px;padding:40px 0 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.next .btn{height:60px;font-size:16px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-intro],.reveal-on [data-r]{opacity:1!important;transform:none!important;clip-path:none!important}
+  .js .hero .ln>span,.reveal-on [data-r] .ln>span{transform:none!important}
+  .js .stage .fl,.js .photo-back{opacity:1;scale:1;rotate:0deg}.js .photo{clip-path:none}.js .photo img{scale:1}
+  .cursor,.loader{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-row">
+    <span class="loader-name"><b>Aqeel Abdul Rahman</b><br>UI/UX &amp; Product Designer</span>
+    <span class="loader-count" id="lcount">0</span>
+  </div>
+  <div class="loader-bar"><i id="lbar"></i></div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><div class="c-ring"><span class="c-label" id="clabel"></span></div></div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Aqeel Abdul Rahman, back to top">Aqeel A.R.</a>
+    <nav class="pill" id="pill" aria-label="Main">
+      <span class="ind" id="ind"></span>
+      <a href="#about">About</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#process">Process</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-r">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>
+      <a class="btn primary mag" href="cv/Aqeel_Abdul_Rahman_Resume_UI_UX_Designer.pdf" download="Aqeel_Abdul_Rahman_Resume_UI_UX_Designer.pdf"><span class="lbl">Download CV</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v10M3.5 7.5 8 12l4.5-4.5"/></svg></span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <nav aria-label="Mobile">
+    <a class="big" href="#about"><span>About</span></a>
+    <a class="big" href="#work"><span>Work</span></a>
+    <a class="big" href="#experience"><span>Experience</span></a>
+    <a class="big" href="#skills"><span>Skills</span></a>
+    <a class="big" href="#process"><span>Process</span></a>
+    <a class="big" href="#contact"><span>Contact</span></a>
+  </nav>
+  <div class="menu-foot">
+    <a class="btn primary" href="cv/Aqeel_Abdul_Rahman_Resume_UI_UX_Designer.pdf" download="Aqeel_Abdul_Rahman_Resume_UI_UX_Designer.pdf"><span class="lbl">Download CV</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v10M3.5 7.5 8 12l4.5-4.5"/></svg></span></a>
+    <a class="mono" style="align-self:center;text-transform:none" href="mailto:aqeelar512@gmail.com">aqeelar512@gmail.com</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="blob" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-meta mono" data-intro style="--d:.1s"><span class="ln-d"></span>UI/UX &amp; Product Designer</p>
+      <h1 aria-label="I make dense data easy to read.">
+        <span class="ln" aria-hidden="true"><span>I make dense</span></span>
+        <span class="ln" aria-hidden="true"><span>data <em>easy</em></span></span>
+        <span class="ln" aria-hidden="true"><span>to read.</span></span>
+      </h1>
+      <p class="lede" data-intro style="--d:.45s">Designer with a computer science degree and three years in enterprise IT. I design <strong>dashboards, maps and workflows</strong> for complex products, and prototype them in working code with AI tools so people can click through an idea before it is built.</p>
+      <div class="cta" data-intro style="--d:.6s">
+        <a class="btn primary mag" href="#work" data-cursor="Scroll"><span class="lbl">See case studies</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg></span></a>
+        <a class="btn plain mag" href="#contact"><span class="lbl">Get in touch</span></a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="photo-back" aria-hidden="true"></div>
+      <figure class="photo"><img src="images/aqeel.jpg" alt="Portrait of Aqeel Abdul Rahman" width="1100" height="1467" fetchpriority="high"></figure>
+      <div class="fl c2"><div class="chip"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 14h3M8 17h6"/></svg></span><span><b>UI/UX Designer</b><small>Jethur GRC</small></span></div></div>
+      <div class="fl c1"><div class="chip"><span class="dot"></span><span><b>Open to work</b><small>UAE · GCC · India</small></span></div></div>
+      <a class="fl spin" href="#work" aria-label="See case studies"><span>
+        <svg class="ring-t" viewBox="0 0 112 112" aria-hidden="true"><defs><path id="circ" d="M56 56m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><text><textPath href="#circ">See my work · See my work · </textPath></text></svg>
+        <i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></i>
+      </span></a>
+    </div>
+  </div>
+  <div class="wrap hero-foot mono" data-intro style="--d:.9s">
+    <span class="scroll-cue"><i></i>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-row"><div class="mq-track">
+    <span>Dashboards</span><span>Data visualization</span><span>Design systems</span><span>Risk maps</span><span>Working prototypes</span>
+    <span>Dashboards</span><span>Data visualization</span><span>Design systems</span><span>Risk maps</span><span>Working prototypes</span>
+  </div></div>
+  <div class="mq-row rev"><div class="mq-track">
+    <span>Heatmaps</span><span><em>Drilldowns</em></span><span>Design tokens</span><span>Access-based views</span><span><em>Empty states</em></span>
+    <span>Heatmaps</span><span><em>Drilldowns</em></span><span>Design tokens</span><span>Access-based views</span><span><em>Empty states</em></span>
+  </div></div>
+</div>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="stat" data-r><b data-count="5">5<sup>+</sup></b><span>years designing, as a hobby and freelance, because I love it</span></div>
+  <div class="stat" data-r style="--d:.08s"><b data-count="1">1</b><span>year of professional design work</span></div>
+  <div class="stat" data-r style="--d:.16s"><b data-count="3">3<sup>+</sup></b><span>years in enterprise IT and ERP</span></div>
+  <div class="stat" data-r style="--d:.24s"><b class="word">GRC <em>&amp;</em> ERP</b><span>domain specialised</span></div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <p class="label mono" data-r><b>(01)</b> About</p>
+    <p class="scrub" id="scrub">I started on the other side of the screen, supporting warehouse systems at Infosys and running IT and ERP in Dubai. Seeing every day which screens slowed people down is what pulled me into <em>design.</em></p>
+    <div class="about">
+      <div class="about-copy">
+        <p data-r>At <strong>Jethur</strong>, an AI-enabled governance, risk and compliance platform, I design the dashboards and workflows that compliance teams use to understand risk at a glance.</p>
+        <p data-r>Before that, at <strong>Al Moosawi Trading</strong> in Dubai, I was the first on-site IT and ERP person. At <strong>Infosys</strong> I supported a US retail client's warehouse systems and automated their SQL reports.</p>
+        <p data-r>Design has been with me the whole way. For more than five years I've designed as a hobby and as a freelancer in my free time, simply because I love it.</p>
+        <p data-r>I like dense, serious data. My job is to make it calm. I usually prototype in HTML with AI tools, so clients and developers can test a real screen instead of a static picture.</p>
+      </div>
+      <div>
+        <dl class="facts" data-r>
+          <div class="fact"><dt>Now</dt><dd>UI/UX Designer, Jethur GRC</dd></div>
+          <div class="fact"><dt>Based in</dt><dd>Kerala, India. Open to the UAE and GCC</dd></div>
+          <div class="fact"><dt>Focus</dt><dd>Enterprise SaaS, dashboards, design systems</dd></div>
+          <div class="fact"><dt>Education</dt><dd>BE Computer Science, Sahyadri College of Engineering</dd></div>
+          <div class="fact"><dt>Certified</dt><dd>Google UX Design Foundations · IBM Enterprise Design Thinking Practitioner · Figma UI/UX Design Essentials (Udemy)</dd></div>
+          <div class="fact"><dt>Languages</dt><dd>English, Hindi, Malayalam</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="sec" id="work" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(02)</b> Selected work</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>Case</span></span><span class="ln"><span><em>studies</em></span></span></h2>
+      </div>
+      <span class="count" data-r>(03)</span>
+    </div>
+
+    <div class="stack" id="stack">
+      <article class="case-card" style="--i:0">
+        <div class="cc" data-case="base-watch" data-cursor="Open" role="button" tabindex="0" aria-label="Open case study: Base Watch">
+          <div class="cc-shade"></div>
+          <div class="cc-txt">
+            <div>
+              <div class="cc-num"><b>01</b><span class="mono">GRC · Data viz · Maps</span></div>
+              <h3>Base Watch: one map for 13 bases</h3>
+              <p>A risk dashboard built around an interactive map. Each base shows its risk at a glance, and a click opens its heatmap, corrective actions and compliance progress.</p>
+            </div>
+            <dl class="kv"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>For</dt><dd>Jethur client</dd></div><div><dt>Built as</dt><dd>HTML prototype</dd></div></dl>
+            <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener" data-cursor="Dribbble">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+          </div>
+          <div class="cc-img"><video class="auto" muted loop playsinline preload="metadata" poster="images/base-watch.jpg" aria-label="Base Watch demo: interactive risk map of 13 bases"><source src="video/base-watch-demo.mp4" type="video/mp4"></video><span class="tag">Client project</span></div>
+        </div>
+      </article>
+      <article class="case-card" style="--i:1">
+        <div class="cc" data-case="risk-dashboard" data-cursor="Open" role="button" tabindex="0" aria-label="Open case study: Making 25 risk KPIs readable">
+          <div class="cc-shade"></div>
+          <div class="cc-txt">
+            <div>
+              <div class="cc-num"><b>02</b><span class="mono">GRC · Dashboards · Design system</span></div>
+              <h3>Making 25 risk KPIs readable</h3>
+              <p>Risk, audit and compliance dashboards for Jethur, organised so a compliance lead can go from overall health to a single record in a few clicks.</p>
+            </div>
+            <dl class="kv"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Product</dt><dd>Jethur GRC</dd></div><div><dt>Scope</dt><dd>Risk, Audit, SoD</dd></div></dl>
+            <a class="drib" href="https://dribbble.com/aqeelar" data-dribbble="audit-dashboard" target="_blank" rel="noopener" data-cursor="Dribbble">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+          </div>
+          <div class="cc-img"><img src="images/audit-dashboard.jpg" alt="Audit dashboard with KPI cards, donut chart and findings trend" loading="lazy"><span class="tag">Enterprise SaaS</span></div>
+        </div>
+      </article>
+      <article class="case-card" style="--i:2">
+        <div class="cc" data-case="policy" data-cursor="Open" role="button" tabindex="0" aria-label="Open case study: Policy management, made clear">
+          <div class="cc-shade"></div>
+          <div class="cc-txt">
+            <div>
+              <div class="cc-num"><b>03</b><span class="mono">Enterprise SaaS · UX writing</span></div>
+              <h3>Policy management, made clear</h3>
+              <p>A dashboard for tracking company policies: status, lifecycle, who has acknowledged them, and what needs attention next.</p>
+            </div>
+            <dl class="kv"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Type</dt><dd>Redesign</dd></div><div><dt>Tools</dt><dd>Figma</dd></div></dl>
+            <a class="drib" href="https://dribbble.com/aqeelar" data-dribbble="policy-management" target="_blank" rel="noopener" data-cursor="Dribbble">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+          </div>
+          <div class="cc-img"><img src="images/policy-dashboard.jpg" alt="Policy management dashboard on a tablet" loading="lazy"><span class="tag">Dashboard redesign</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MORE WORK (horizontal) ================= -->
+<section class="hs" id="more">
+  <div class="hs-pin">
+    <div class="hs-track" id="hsTrack">
+      <div class="hs-intro">
+        <div>
+          <p class="label mono"><b>(03)</b> More work</p>
+          <h2 class="h2" style="font-size:clamp(44px,5.4vw,88px)">More <em>projects</em></h2>
+          <p>Web, mobile and dashboard work, from product screens to landing pages.</p>
+        </div>
+        <div class="hs-progress"><i id="hsProg"></i></div>
+      </div>
+      <!-- Dribbble links: only Base Watch has its own shot URL so far; the rest point to the profile until their shot URLs are added (see data-dribbble). -->
+      <a class="mini" href="https://dribbble.com/aqeelar" data-dribbble="ebike-app" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><img src="images/pedal-s1.jpg" alt="Pedal S1 eBike app screens" loading="lazy"></div><div><div class="mt"><h4>Pedal S1 eBike App <span class="out">↗</span></h4><span class="mono">Mobile app</span></div><p>Home, navigation and product browsing for an electric bike brand.</p></div></a>
+      <a class="mini" href="https://dribbble.com/aqeelar" data-dribbble="moosawi-landing" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><video class="auto" muted loop playsinline preload="metadata" poster="images/industrial-hero.jpg" aria-label="Moosawi landing page demo"><source src="video/moosawi-landing-page.mp4" type="video/mp4"></video></div><div><div class="mt"><h4>Moosawi Landing Page <span class="out">↗</span></h4><span class="mono">Web · Motion</span></div><p>A scroll-driven hero with 3D product visuals for an industrial supplier.</p></div></a>
+      <a class="mini" href="https://dribbble.com/aqeelar" data-dribbble="arcconsulting" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><video class="auto" muted loop playsinline preload="metadata" poster="images/arcconsulting.jpg" aria-label="ArcConsulting landing page demo"><source src="video/arcconsulting.mp4" type="video/mp4"></video></div><div><div class="mt"><h4>ArcConsulting Revamp <span class="out">↗</span></h4><span class="mono">Landing page</span></div><p>A bold new landing page for a consulting firm serving the UAE and GCC.</p></div></a>
+      <a class="mini" href="https://dribbble.com/aqeelar" data-dribbble="audit-dashboard" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><img src="images/audit-dashboard.jpg" alt="Audit dashboard for GRC software" loading="lazy"></div><div><div class="mt"><h4>Audit Dashboard <span class="out">↗</span></h4><span class="mono">B2B dashboard</span></div><p>Total audits, findings by severity and overdue actions on one scannable page.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="sec" id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(04)</b> Experience</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>Where I've</span></span><span class="ln"><span><em>worked</em></span></span></h2>
+      </div>
+    </div>
+    <div class="xp" data-r>
+      <div class="xp-item open">
+        <button class="xp-head" aria-expanded="true"><span class="xp-when">May 2026 – Present</span><span class="xp-role">UI/UX Designer</span><span class="xp-co">Jethur GRC · Riyadh, Saudi Arabia (remote)</span><span class="xp-plus" aria-hidden="true"></span></button>
+        <div class="xp-body"><div><ul>
+          <li>Design data-heavy dashboards for an AI-enabled GRC platform, including a 25-KPI Risk Management dashboard, Segregation of Duties, Access Governance and ISO 27001 assessment.</li>
+          <li>Designed Base Watch, an interactive risk map for 13 bases with 3D, hex and outline map styles and views by access level.</li>
+          <li>Contributed to Jethur V2: Access Governance and Compliance modules and AI Configuration settings.</li>
+          <li>Turn BRDs into working HTML prototypes and flag requirement gaps inside the prototype, before build.</li>
+        </ul></div></div>
+      </div>
+      <div class="xp-item">
+        <button class="xp-head" aria-expanded="false"><span class="xp-when">Feb 2025 – Jul 2026</span><span class="xp-role">IT and ERP Support Specialist</span><span class="xp-co">Al Moosawi Trading LLC · Dubai, UAE</span><span class="xp-plus" aria-hidden="true"></span></button>
+        <div class="xp-body"><div><ul>
+          <li>First on-site IT and ERP administrator for a multi-location industrial supplier.</li>
+          <li>Handled user access, system configuration and deployments, and wrote the ERP handover SOP.</li>
+          <li>Designed company profiles, service documents and internal materials in Figma and Canva.</li>
+        </ul></div></div>
+      </div>
+      <div class="xp-item">
+        <button class="xp-head" aria-expanded="false"><span class="xp-when">May 2022 – Jun 2024</span><span class="xp-role">Systems Engineer</span><span class="xp-co">Infosys · Mangalore, India</span><span class="xp-plus" aria-hidden="true"></span></button>
+        <div class="xp-body"><div><ul>
+          <li>Supported Torrid, a US retail client, at its distribution center.</li>
+          <li>Built automated SQL reports that cut report generation time by 85% and manual effort by 40%.</li>
+          <li>Kept uptime above 97% and cut SLA resolution time by 30%.</li>
+        </ul></div></div>
+      </div>
+      <div class="xp-item">
+        <button class="xp-head" aria-expanded="false"><span class="xp-when">Freelance</span><span class="xp-role">Web and UI Designer</span><span class="xp-co">ARDesigno · independent studio</span><span class="xp-plus" aria-hidden="true"></span></button>
+        <div class="xp-body"><div><ul>
+          <li>Landing pages, websites and app concepts for small businesses, including ArcConsulting and an industrial supplier.</li>
+        </ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="sec" id="skills" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(05)</b> Skills &amp; expertise</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>What I</span></span><span class="ln"><span><em>bring</em></span></span></h2>
+      </div>
+    </div>
+    <div class="skills">
+      <article class="skill-card glow-card" data-r>
+        <div class="sk-head"><h3>AI &amp; Product Design</h3><span class="mono">01</span></div>
+        <ul class="chips"><li>AI-assisted design</li><li>AI UX workflows</li><li>Prompt engineering</li><li>AI-driven prototyping</li><li>AI evidence analysis UX</li><li>Rapid concepts</li><li>UX writing</li><li>Enterprise SaaS UX</li><li>Figma AI</li><li>Figma MCP</li></ul>
+      </article>
+      <article class="skill-card glow-card" data-r style="--d:.08s">
+        <div class="sk-head"><h3>UX &amp; UI Design</h3><span class="mono">02</span></div>
+        <ul class="chips"><li>User research</li><li>Personas</li><li>Journey mapping</li><li>Information architecture</li><li>Wireframing</li><li>Prototyping</li><li>Usability testing</li><li>Heuristic evaluation</li><li>Design thinking</li><li>Human-centered design</li><li>Design systems</li><li>Responsive design</li><li>Dashboards &amp; data visualization</li></ul>
+      </article>
+      <article class="skill-card glow-card" data-r>
+        <div class="sk-head"><h3>GRC &amp; Product Domain</h3><span class="mono">03</span></div>
+        <ul class="chips"><li>Compliance management</li><li>Evidence management</li><li>Audit workflows</li><li>Access governance</li><li>Risk management</li><li>Business continuity</li><li>Incident management</li><li>ERP systems</li></ul>
+      </article>
+      <article class="skill-card glow-card" data-r style="--d:.08s">
+        <div class="sk-head"><h3>Collaboration</h3><span class="mono">04</span></div>
+        <ul class="chips"><li>Stakeholder management</li><li>Client discussions</li><li>Cross-functional work</li><li>Agile UX</li><li>Lean UX</li><li>Documentation</li><li>Problem-solving</li><li>Critical thinking</li></ul>
+      </article>
+    </div>
+    <p class="mono tools-label" data-r>Tools I work with</p>
+    <ul class="tools" data-r>
+      <li class="tool"><img class="lg" src="images/icons/figma-color.svg" alt="" width="24" height="24">Figma</li>
+      <li class="tool"><img class="lg" src="images/icons/canva.png" alt="" width="24" height="24">Canva</li>
+      <li class="tool"><img class="lg" src="images/icons/adobe-express.svg" alt="" width="24" height="24">Adobe Express</li>
+      <li class="tool"><span class="ti" style="--i:url(images/icons/claude.svg);--c:#d97757"></span>Claude Design</li>
+      <li class="tool"><img class="lg sq" src="images/icons/stitch.png" alt="" width="24" height="24">Stitch with Google</li>
+      <li class="tool"><img class="lg" src="images/icons/html5-color.svg" alt="" width="24" height="24">HTML</li>
+      <li class="tool"><img class="lg" src="images/icons/css3-color.svg" alt="" width="24" height="24">CSS</li>
+      <li class="tool"><img class="lg" src="images/icons/git-color.svg" alt="" width="24" height="24">Git</li>
+      <li class="tool"><span class="ti" style="--i:url(images/icons/github.svg);--c:var(--fg)"></span>GitHub</li>
+      <li class="tool"><span class="ti" style="--i:url(images/icons/jira.svg);--c:#2684ff"></span>Jira</li>
+      <li class="tool"><span class="ti" style="--i:url(images/icons/confluence.svg);--c:#2684ff"></span>Confluence</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section class="sec" id="certifications" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(06)</b> Certifications</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>Always</span></span><span class="ln"><span><em>learning</em></span></span></h2>
+      </div>
+    </div>
+    <div class="certs">
+      <article class="cert glow-card" data-r>
+        <span class="cert-logo"><img src="images/icons/google-wordmark.svg" alt="Google" height="28" style="max-width:none"></span>
+        <h3>Foundations of User Experience (UX) Design</h3>
+        <p class="mono">Google</p>
+      </article>
+      <article class="cert glow-card" data-r style="--d:.08s">
+        <span class="cert-logo"><img src="images/icons/ibm.svg" alt="IBM" height="32" style="max-width:none"></span>
+        <h3>Enterprise Design Thinking Practitioner</h3>
+        <p class="mono">IBM</p>
+      </article>
+      <article class="cert glow-card" data-r style="--d:.16s">
+        <span class="cert-logo"><img src="images/icons/udemy.svg" alt="Udemy" height="30"></span>
+        <h3>Figma UI/UX Design Essentials</h3>
+        <p class="mono">Udemy</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="sec" id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(07)</b> Process</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>How a screen</span></span><span class="ln"><span>gets <em>made</em></span></span></h2>
+      </div>
+    </div>
+    <div class="steps-wrap" id="steps">
+      <div class="steps-line"><i id="stepsLine"></i></div>
+      <div class="steps">
+        <div class="step" data-r><b>01</b><h3>Read the requirement</h3><p>I start from the BRD and the people who will use the screen, and list what they need to decide.</p></div>
+        <div class="step" data-r style="--d:.1s"><b>02</b><h3>Prototype in code</h3><p>I build a working HTML version with AI tools, with realistic data, so problems show up early.</p></div>
+        <div class="step" data-r style="--d:.2s"><b>03</b><h3>Review with the client</h3><p>Gaps go inside the prototype as notes. Feedback becomes changes, often on the same day.</p></div>
+        <div class="step" data-r style="--d:.3s"><b>04</b><h3>Systemise it</h3><p>What works becomes a component, a token or a pattern, so the next screen is faster and consistent.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHOTOGRAPHY ================= -->
+<section class="sec" id="photography" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(08)</b> Photography</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>Beyond the</span></span><span class="ln"><span><em>screen</em></span></span></h2>
+      </div>
+    </div>
+    <div class="photos">
+      <figure class="ph" data-r="clip"><img src="images/Photography/photo-01.jpg" alt="A red admiral butterfly resting on a branch in dappled forest light" loading="lazy" style="object-position:50% 52%"><figcaption>Quiet moment in the green</figcaption></figure>
+      <figure class="ph" data-r="clip"><img src="images/Photography/photo-02.jpg" alt="A rider on a quad bike cresting a red sand dune under a cloudy sky" loading="lazy" style="object-position:50% 62%"><figcaption>Desert dunes</figcaption></figure>
+      <figure class="ph" data-r="clip" style="--d:.08s"><img src="images/Photography/photo-03.jpg" alt="The Burj Khalifa lit up against a dark night sky" loading="lazy" style="object-position:50% 30%"><figcaption>Burj Khalifa at night</figcaption></figure>
+      <figure class="ph" data-r="clip" style="--d:.12s"><img src="images/Photography/photo-04.jpg" alt="A lone figure facing snow-capped mountains across a valley" loading="lazy"><figcaption>Snow-capped peaks</figcaption></figure>
+      <figure class="ph" data-r="clip" style="--d:.16s"><img src="images/Photography/photo-05.jpg" alt="A domed, colonnaded building curving under storm clouds" loading="lazy"><figcaption>Columns and clouds</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <p class="label mono" data-r><b>(09)</b> Contact</p>
+    <h2 data-r="lines"><span class="ln"><span>Let's make</span></span><span class="ln"><span>something <em>clear.</em></span></span></h2>
+    <p class="contact-lede" data-r>I'm open to UI/UX and product design roles in the UAE, the GCC and India, onsite, hybrid or remote. Available to join immediately.</p>
+    <div class="mail-row" data-r>
+      <a class="mail" href="mailto:aqeelar512@gmail.com" id="email" data-cursor="Email">aqeelar512@gmail.com</a>
+      <button class="btn mag" id="copy" type="button"><span class="lbl" id="copyLbl">Copy email</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="8" height="8" rx="2"/><path d="M3 10V4a1 1 0 0 1 1-1h6"/></svg></span></button>
+    </div>
+    <dl class="clist" data-r>
+      <div><dt>Phone (UAE)</dt><dd><a href="tel:+971507546406">+971 50 754 6406</a></dd></div>
+      <div><dt>Phone (India)</dt><dd><a href="tel:+919496046406">+91 94960 46406</a></dd></div>
+      <a href="https://www.linkedin.com/in/aqeelar" target="_blank" rel="noopener"><dt>LinkedIn</dt><dd>linkedin.com/in/aqeelar ↗</dd></a>
+      <a href="https://dribbble.com/aqeelar" target="_blank" rel="noopener"><dt>Dribbble</dt><dd>dribbble.com/aqeelar ↗</dd></a>
+    </dl>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Aqeel Abdul Rahman</span>
+    <button class="totop" id="totop" type="button">Back to top ↑</button>
+  </div>
+</footer>
+
+<!-- ================= CASE VIEW ================= -->
+<dialog class="cv" id="cv" aria-label="Case study">
+  <div class="cv-scroll" id="cvScroll" data-lenis-prevent>
+    <div class="cv-bar">
+      <span class="mono" id="cvTitle">Case study</span>
+      <button class="cv-close" id="cvClose" aria-label="Close case study"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <span class="cv-prog" id="cvProg"></span>
+    </div>
+    <div class="cv-body" id="cvBody"></div>
+  </div>
+</dialog>
+
+<template id="t-base-watch">
+  <p class="eyebrow">Case study 01 · Client project for Jethur GRC</p>
+  <h2>Base Watch: one map for <em>13</em> bases</h2>
+  <p class="intro">A client needed to see risk across 13 bases. I turned 13 separate dashboards into one map that answers "where should I look first?" and then lets you drill in.</p>
+  <dl class="overview"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Platform</dt><dd>Jethur GRC</dd></div><div><dt>Deliverable</dt><dd>Working HTML prototype</dd></div><div><dt>Tools</dt><dd>Figma, HTML/CSS, AI tools</dd></div></dl>
+  <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+  <figure><video class="auto" muted loop playsinline controls preload="metadata" poster="images/base-watch.jpg" aria-label="Base Watch demo"><source src="video/base-watch-demo.mp4" type="video/mp4"></video><figcaption>The map is the front door. Each pin is a base, coloured by its current risk level.</figcaption></figure>
+  <h3>The problem</h3>
+  <p>The client's risk information lived in <strong>13 base-level dashboards</strong>. Each one was useful on its own, but there was no single view that showed all 13 side by side.</p>
+  <h3>The idea</h3>
+  <p>Bases are places, so I proposed a map. The map was my idea, and it changed the question the dashboard answers: from "what does this base look like?" to "<strong>which base needs me today?</strong>"</p>
+  <div class="callout">Start with where, then show what.</div>
+  <div class="flow"><span>Map of 13 bases</span><i>→</i><span>Pick a base</span><i>→</i><span>Risk heatmap</span><i>→</i><span>Corrective actions</span><i>→</i><span>Treatment plan progress</span></div>
+  <h3>Key decisions</h3>
+  <div class="decisions">
+    <div class="decision"><h4>Colour carries the risk level</h4><p>Each base is coded by risk, so the riskiest locations stand out before you read a single number.</p></div>
+    <div class="decision"><h4>Drill down, don't navigate away</h4><p>Clicking a base opens its heatmap, corrective actions, compliance and treatment plans in context.</p></div>
+    <div class="decision"><h4>Views follow access level</h4><p>What a user sees depends on their role, so each person gets the bases and detail that are theirs.</p></div>
+    <div class="decision"><h4>A prototype, not a picture</h4><p>I built it as a working HTML prototype so the client could click through real interactions in review.</p></div>
+  </div>
+  <h3>The feedback that changed it</h3>
+  <p>The client didn't like the first map style. Instead of guessing a replacement, I added a <strong>map style switcher</strong> with three options: <strong>3D, hex and outline</strong>. Each user can pick the view that reads best for them, and the client got a choice instead of my opinion.</p>
+  <h3>What I learned</h3>
+  <ul>
+    <li>The right container matters more than the right chart. Putting risk on a map made the comparison instant.</li>
+    <li>A clickable prototype gets better feedback than a static mockup, because people react to how it behaves.</li>
+    <li>When feedback is about taste, giving users a choice can resolve it faster than another round of revisions.</li>
+  </ul>
+  <div class="next"><span class="mono">Next case study</span><button class="btn primary" data-case="risk-dashboard" type="button"><span class="lbl">Making 25 risk KPIs readable</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg></span></button></div>
+</template>
+
+<template id="t-risk-dashboard">
+  <p class="eyebrow">Case study 02 · Jethur GRC</p>
+  <h2>Making <em>25</em> risk KPIs readable</h2>
+  <p class="intro">Compliance teams work with a lot of numbers. I designed Jethur's risk and audit dashboards so the most important signal comes first and every detail is one or two clicks away.</p>
+  <dl class="overview"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Product</dt><dd>Jethur, AI-enabled GRC</dd></div><div><dt>Scope</dt><dd>Risk, Audit, SoD, ISO 27001</dd></div><div><dt>Tools</dt><dd>Figma, HTML/CSS, AI tools</dd></div></dl>
+  <a class="drib" href="https://dribbble.com/aqeelar" data-dribbble="audit-dashboard" target="_blank" rel="noopener">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+  <figure><img src="images/audit-dashboard.jpg" alt="Audit dashboard"><figcaption>The audit dashboard: totals first, then findings by severity, then the trend over time.</figcaption></figure>
+  <h3>The problem</h3>
+  <p>The Risk Management dashboard had to hold <strong>25 KPIs</strong>. Shown all at once, that is a wall of numbers. A compliance lead needs to know if the register is healthy, where exposure is high, and which records need action.</p>
+  <h3>Structure before charts</h3>
+  <p>I organised the dashboard as a <strong>four-level hierarchy</strong>, so it reads from summary to detail:</p>
+  <div class="flow"><span>Register Health</span><i>→</i><span>Risk Exposure</span><i>→</i><span>Operational Health</span><i>→</i><span>Detailed Breakdown</span></div>
+  <div class="callout">Each level answers one question, then hands you to the next.</div>
+  <h3>Choosing the right chart for each question</h3>
+  <div class="decisions">
+    <div class="decision"><h4>Heatmaps for exposure</h4><p>Likelihood against impact shows where risk clusters, faster than any table.</p></div>
+    <div class="decision"><h4>Gauges and bullet charts for targets</h4><p>When the question is "are we on target?", the chart shows the target.</p></div>
+    <div class="decision"><h4>Bubble and lollipop charts for comparison</h4><p>They compare categories without the heaviness of many bars.</p></div>
+    <div class="decision"><h4>A pivotable KPI table for detail</h4><p>Analysts can regroup the breakdown themselves, and every chart drills down into it.</p></div>
+  </div>
+  <h3>Designing with real-shaped data</h3>
+  <p>Empty mockups hide problems. I built a <strong>162-record test dataset</strong> so the prototype behaved like the real thing, with long names, uneven categories and edge cases. I also designed empty states for every widget, so a new client's first view still makes sense.</p>
+  <h3>One system across modules</h3>
+  <p>The same components, cards and colour rules run through Risk, Audit, Segregation of Duties, Access Governance and ISO 27001 assessment. I used Figma variables as design tokens, kept a dedicated colour for AI-generated content, and followed accessibility basics: strong contrast, readable type and text labels alongside colour.</p>
+  <h3>Working with the team</h3>
+  <ul>
+    <li>I worked from BRDs and process specs, and flagged gaps inside the prototype so open questions were visible before development.</li>
+    <li>Change requests from clients were usually turned around on the same day.</li>
+    <li>I contributed to Jethur V2, including the Access Governance and Compliance modules and AI Configuration settings.</li>
+  </ul>
+  <div class="next"><span class="mono">Next case study</span><button class="btn primary" data-case="policy" type="button"><span class="lbl">Policy management, made clear</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg></span></button></div>
+</template>
+
+<template id="t-policy">
+  <p class="eyebrow">Case study 03 · Dashboard redesign</p>
+  <h2>Policy management, made <em>clear</em></h2>
+  <p class="intro">Companies have dozens of policies, each with an owner, a lifecycle and people who must read and accept it. This redesign makes it easy to see what is current, what is overdue, and who hasn't acknowledged yet.</p>
+  <dl class="overview"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Type</dt><dd>Dashboard redesign</dd></div><div><dt>Focus</dt><dd>Components, UI copy</dd></div><div><dt>Tools</dt><dd>Figma</dd></div></dl>
+            <a class="drib" href="https://dribbble.com/aqeelar" data-dribbble="policy-management" target="_blank" rel="noopener" data-cursor="Dribbble">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+  <figure><img src="images/policy-dashboard.jpg" alt="Policy management dashboard"><figcaption>Status, lifecycle, distribution by type and acknowledgement rates on one screen.</figcaption></figure>
+  <h3>The problem</h3>
+  <p>Policy data is mostly lists and dates. The questions people ask are simple: <strong>which policies are active, which are due for review, and who still needs to acknowledge them?</strong> The old screen made people hunt for those answers.</p>
+  <h3>What I designed</h3>
+  <ul>
+    <li><strong>Status first.</strong> Counts for each policy status sit at the top, so the overall state is clear in one look.</li>
+    <li><strong>Lifecycle view.</strong> Policies are grouped by where they are, from draft to review to published.</li>
+    <li><strong>Distribution by type</strong> shows where most policies sit and where coverage may be thin.</li>
+    <li><strong>Acknowledgement rates</strong> make follow-up easy to spot.</li>
+    <li><strong>A policy table</strong> holds the detail, with consistent component patterns.</li>
+  </ul>
+  <div class="callout">Good UI copy is part of the design, not a final pass.</div>
+  <h3>Words and components</h3>
+  <p>I refined the UI copy across the dashboard so labels say what people recognise, and tightened the component patterns so cards, tables and badges behave the same way everywhere. I designed it as interactive, dark-themed mockups so the team could review the flow, not just the layout.</p>
+  <div class="next"><span class="mono">Back to the start</span><button class="btn primary" data-case="base-watch" type="button"><span class="lbl">Base Watch: one map for 13 bases</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg></span></button></div>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var hasGSAP=!!(window.gsap&&window.ScrollTrigger)&&!reduce;
+  var lenis=null;
+  function $(s,c){return (c||document).querySelector(s)}
+  function $$(s,c){return [].slice.call((c||document).querySelectorAll(s))}
+
+
+  /* ---------- loader ---------- */
+  var loader=$('#loader'),seen=false;
+  try{seen=sessionStorage.getItem('ar-seen')==='1'}catch(e){}
+  function intro(){root.classList.add('ready')}
+  if(reduce||seen){loader.remove();intro()}
+  else{
+    try{sessionStorage.setItem('ar-seen','1')}catch(e){}
+    var lc=$('#lcount'),lb=$('#lbar'),t0=performance.now(),D=1400;
+    (function tick(t){
+      var p=Math.min((t-t0)/D,1),e=1-Math.pow(1-p,3);
+      lc.textContent=Math.round(e*100);lb.style.transform='scaleX('+e+')';
+      if(p<1)requestAnimationFrame(tick);
+      else{setTimeout(function(){loader.classList.add('done');setTimeout(intro,150);setTimeout(function(){loader.remove()},1100)},200)}
+    })(t0);
+  }
+
+  /* ---------- smooth scroll ---------- */
+  if(!reduce&&window.Lenis){
+    lenis=new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},smoothWheel:true});
+    if(hasGSAP){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
+    else{(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now())}
+  }
+  function scrollToEl(el){
+    if(lenis)lenis.scrollTo(el,{duration:1.5});
+    else el.scrollIntoView({behavior:reduce?'auto':'smooth'});
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=a.getAttribute('href');if(id.length<2)return;
+    var t=document.getElementById(id.slice(1));if(!t)return;
+    e.preventDefault();closeMenu();scrollToEl(t);
+  });
+  $('#totop').addEventListener('click',function(){scrollToEl(document.body)});
+
+  /* ---------- nav ---------- */
+  var nav=$('#nav'),lastY=0,menuOpen=false;
+  addEventListener('scroll',function(){
+    var y=scrollY;
+    nav.classList.toggle('hide',y>lastY&&y>300&&!menuOpen);
+    lastY=y;
+  },{passive:true});
+  var pill=$('#pill'),ind=$('#ind'),links=$$('a',pill),active=null;
+  function moveInd(a){if(!a){ind.style.opacity=0;return}ind.style.opacity=1;ind.style.width=a.offsetWidth+'px';ind.style.transform='translateX('+(a.offsetLeft)+'px)'}
+  links.forEach(function(a){a.addEventListener('mouseenter',function(){moveInd(a)})});
+  pill.addEventListener('mouseleave',function(){moveInd(active)});
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var id=e.target.id==='more'?'work':e.target.id==='photography'?'process':e.target.id==='certifications'?'skills':e.target.id;
+      active=links.filter(function(a){return a.getAttribute('href')==='#'+id})[0]||null;
+      links.forEach(function(a){a.classList.toggle('on',a===active)});moveInd(active);
+    })},{rootMargin:'-45% 0px -50% 0px'});
+    $$('main > section').forEach(function(s){so.observe(s)});
+  }
+
+  /* mobile menu */
+  var menuBtn=$('#menuBtn');
+  function closeMenu(){if(!menuOpen)return;menuOpen=false;root.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');lenis&&lenis.start()}
+  menuBtn.addEventListener('click',function(){
+    menuOpen=!menuOpen;root.classList.toggle('menu-open',menuOpen);nav.classList.remove('hide');menuBtn.setAttribute('aria-expanded',menuOpen);
+    if(lenis){menuOpen?lenis.stop():lenis.start()}
+  });
+  addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+
+  /* ---------- project videos: play only while on screen (poster image otherwise) ---------- */
+  var vio=('IntersectionObserver' in window&&!reduce)?new IntersectionObserver(function(es){es.forEach(function(e){
+    var v=e.target;
+    if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause();
+  })},{threshold:.25}):null;
+  function autoVideos(scope){if(vio)$$('video.auto',scope).forEach(function(v){vio.observe(v)})}
+  autoVideos(document);
+
+  /* card spotlight follows the cursor */
+  if(fine&&!reduce)$$('.glow-card').forEach(function(c){
+    c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  });
+
+  /* ---------- theme toggle ---------- */
+  var dotHi,dotLo,dotA,themeBtn=$('#themeBtn'),metaTheme=$('meta[name="theme-color"]');
+  function readTheme(){
+    var cs=getComputedStyle(root),dark=root.getAttribute('data-theme')==='dark';
+    dotHi=cs.getPropertyValue('--dot-hi').trim();dotLo=cs.getPropertyValue('--dot').trim();dotA=cs.getPropertyValue('--dot-a').trim();
+    metaTheme.setAttribute('content',cs.getPropertyValue('--bg').trim());
+    themeBtn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+    dirty=true;
+  }
+  readTheme();
+  var curTheme=root.getAttribute('data-theme');
+  themeBtn.addEventListener('click',function(e){
+    var next=curTheme==='dark'?'light':'dark';curTheme=next;
+    function apply(){root.setAttribute('data-theme',next);readTheme()}
+    try{localStorage.setItem('ar-theme-v3',next)}catch(err){}
+    if(document.startViewTransition&&!reduce&&!document.hidden){
+      var b=themeBtn.getBoundingClientRect(),x=b.left+b.width/2,y=b.top+b.height/2;
+      var r=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y));
+      var vt=document.startViewTransition(apply);vt.finished.catch(function(){});vt.ready.then(function(){
+        root.animate({clipPath:['circle(0px at '+x+'px '+y+'px)','circle('+r+'px at '+x+'px '+y+'px)']},{duration:800,easing:'cubic-bezier(.16,1,.3,1)',pseudoElement:'::view-transition-new(root)'});
+      }).catch(function(){});
+    }else apply();
+  });
+
+  /* ---------- hero: dot field + parallax ---------- */
+  var hero=$('#hero'),cv=$('#field'),ctx=cv.getContext('2d'),stage=$('#stage');
+  var W=0,H=0,dpr=1,mx=-1e3,my=-1e3,tx=-1e3,ty=-1e3,amp=0,tamp=0,px=0,py=0,tpx=0,tpy=0,heroOn=true,dirty=true;
+  function size(){dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);dirty=true}
+  function draw(){
+    ctx.clearRect(0,0,W,H);var g=W<600?24:30,R=220;
+    for(var y=g/2;y<H;y+=g)for(var x=g/2;x<W;x+=g){
+      var d=Math.hypot(x-mx,y-my),f=Math.max(0,1-d/R)*amp;
+      if(f>0){ctx.fillStyle='rgba('+dotHi+','+(.1+f*.8)+')';var sz=1.2+f*2.2;ctx.fillRect(x-sz/2,y-sz/2,sz,sz)}
+      else{ctx.fillStyle='rgba('+dotLo+','+dotA+')';ctx.fillRect(x-.6,y-.6,1.2,1.2)}
+    }
+  }
+  size();addEventListener('resize',size);
+  if(fine&&!reduce){
+    hero.addEventListener('pointermove',function(e){var b=hero.getBoundingClientRect();tx=e.clientX-b.left;ty=e.clientY-b.top;if(mx<-500){mx=tx;my=ty}tamp=1;tpx=(e.clientX/innerWidth-.5)*2;tpy=(e.clientY/innerHeight-.5)*2});
+    hero.addEventListener('pointerleave',function(){tamp=0;tpx=0;tpy=0});
+  }
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){heroOn=es[0].isIntersecting}).observe(hero);
+  (function loop(){
+    if(heroOn){
+      var dm=Math.abs(tx-mx)+Math.abs(ty-my)+Math.abs(tamp-amp);
+      if(dm>.01||dirty){mx+=(tx-mx)*.14;my+=(ty-my)*.14;amp+=(tamp-amp)*.08;draw();dirty=false}
+      var dp=Math.abs(tpx-px)+Math.abs(tpy-py);
+      if(dp>.001){px+=(tpx-px)*.07;py+=(tpy-py)*.07;stage.style.setProperty('--px',px.toFixed(4));stage.style.setProperty('--py',py.toFixed(4))}
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  /* ---------- reveals ---------- */
+  var rv=$$('[data-r]');
+  if('IntersectionObserver' in window&&!reduce){
+    root.classList.add('reveal-on');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px',threshold:.01});
+    rv.forEach(function(el){io.observe(el)});
+  }
+
+  /* count-up */
+  if(!reduce&&'IntersectionObserver' in window){
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;co.unobserve(e.target);
+      var el=e.target,end=+el.dataset.count,sup=el.querySelector('sup'),supH=sup?sup.outerHTML:'',s0=performance.now();
+      (function tick(t){var p=Math.min((t-s0)/1600,1),v=Math.round(end*(1-Math.pow(1-p,4)));el.innerHTML=v+supH;if(p<1)requestAnimationFrame(tick)})(s0);
+    })},{threshold:.6});
+    $$('[data-count]').forEach(function(el){co.observe(el)});
+  }
+
+  /* experience accordion */
+  $$('.xp-head').forEach(function(b){
+    b.addEventListener('click',function(){
+      var it=b.parentNode,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o);
+      if(hasGSAP)setTimeout(function(){ScrollTrigger.refresh()},750);
+    });
+  });
+
+  /* ---------- GSAP scroll scenes ---------- */
+  if(hasGSAP){
+    gsap.registerPlugin(ScrollTrigger);
+    root.classList.add('gsap');
+
+    /* marquee with scroll-velocity boost */
+    var mqT=$$('.mq-track').map(function(tr,i){
+      return i%2?gsap.fromTo(tr,{xPercent:-50},{xPercent:0,ease:'none',duration:46,repeat:-1}):gsap.to(tr,{xPercent:-50,ease:'none',duration:46,repeat:-1});
+    });
+    ScrollTrigger.create({trigger:'.mq',start:'top bottom',end:'bottom top',onUpdate:function(self){
+      var s=1+Math.min(Math.abs(self.getVelocity())/180,8);
+      mqT.forEach(function(tw){gsap.to(tw,{timeScale:s,duration:.25,overwrite:true,onComplete:function(){gsap.to(tw,{timeScale:1,duration:1.2,overwrite:true})}})});
+    }});
+
+    /* about: word-by-word scrub */
+    var scrub=$('#scrub');
+    (function split(node){
+      [].slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var f=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(w))}else{var s=document.createElement('span');s.className='w';s.textContent=w;f.appendChild(s)}});
+          node.replaceChild(f,n);
+        }else if(n.nodeType===1)split(n);
+      });
+    })(scrub);
+    gsap.to($$('.w',scrub),{opacity:1,stagger:.1,ease:'none',scrollTrigger:{trigger:scrub,start:'top 85%',end:'bottom 45%',scrub:true}});
+
+    var mm=gsap.matchMedia();
+    mm.add('(min-width: 861px)',function(){
+      /* stacking case cards */
+      var cards=$$('.case-card');
+      cards.forEach(function(card,i){
+        var img=$('.cc-img > img, .cc-img > video',card);
+        gsap.fromTo(img,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:card,start:'top bottom',end:'bottom top',scrub:true}});
+        if(i===cards.length-1)return;
+        var next=cards[i+1];
+        gsap.to($('.cc',card),{scale:.92,ease:'none',scrollTrigger:{trigger:next,start:'top bottom',end:'top '+(96+(i+1)*16)+'px',scrub:true}});
+        gsap.to($('.cc-shade',card),{opacity:.55,ease:'none',scrollTrigger:{trigger:next,start:'top bottom',end:'top '+(96+(i+1)*16)+'px',scrub:true}});
+      });
+
+      /* horizontal "more work" */
+      var sec=$('#more'),track=$('#hsTrack');
+      sec.classList.add('hs-on');
+      function dist(){return Math.max(0,track.scrollWidth-innerWidth)}
+      gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:sec,start:'top top',end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1,
+        onUpdate:function(self){$('#hsProg').style.transform='scaleX('+self.progress+')'}}});
+      return function(){sec.classList.remove('hs-on')};
+    });
+
+    /* process line */
+    gsap.to('#stepsLine',{scaleX:1,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'bottom 55%',scrub:true}});
+
+    addEventListener('load',function(){ScrollTrigger.refresh()});
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){ScrollTrigger.refresh()});
+  }
+
+  /* ---------- cursor + magnetic ---------- */
+  if(fine&&!reduce){
+    var cur=$('#cursor'),ring=$('.c-ring',cur),lab=$('#clabel'),x=-100,y=-100,cx=-100,cy=-100;
+    addEventListener('pointermove',function(e){x=e.clientX;y=e.clientY;cur.classList.add('on')},{passive:true});
+    document.addEventListener('pointerleave',function(){cur.classList.remove('on')});
+    (function loop(){cx+=(x-cx)*.2;cy+=(y-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0)';requestAnimationFrame(loop)})();
+    document.addEventListener('pointerover',function(e){
+      var t=e.target.closest('[data-cursor]'),h=e.target.closest('a,button,.cell,[role=button]');
+      if(t){lab.textContent=t.dataset.cursor;cur.classList.add('lab');cur.classList.remove('hov')}
+      else{cur.classList.remove('lab');cur.classList.toggle('hov',!!h)}
+    });
+    $$('.mag').forEach(function(b){
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.2)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)'});
+      b.addEventListener('pointerleave',function(){b.style.transition='transform .7s cubic-bezier(.16,1,.3,1)';b.style.transform='';setTimeout(function(){b.style.transition=''},700)});
+    });
+  }
+
+  /* ---------- copy email ---------- */
+  var copyBtn=$('#copy');
+  function setCopy(t){$('#copyLbl').textContent=t}
+  copyBtn.addEventListener('click',function(){
+    var t='aqeelar512@gmail.com';
+    function done(){setCopy('Copied!');setTimeout(function(){setCopy('Copy email')},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents($('#email'));var s=getSelection();s.removeAllRanges();s.addRange(r);setCopy('Press Ctrl+C')}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,fallback);else fallback();
+  });
+
+
+  /* ---------- case view ---------- */
+  var dlg=$('#cv'),body=$('#cvBody'),ttl=$('#cvTitle'),prog=$('#cvProg'),sc=$('#cvScroll');
+  var names={'base-watch':'Base Watch','risk-dashboard':'Risk dashboards','policy':'Policy management'};
+  function openCase(id){
+    var t=document.getElementById('t-'+id);if(!t)return;
+    if(vio)$$('video',body).forEach(function(v){vio.unobserve(v)});
+    body.innerHTML='';body.appendChild(t.content.cloneNode(true));autoVideos(body);
+    ttl.textContent='Case study · '+names[id];
+    sc.scrollTop=0;prog.style.transform='scaleX(0)';
+    if(!dlg.open){
+      if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+      root.classList.add('modal-open');lenis&&lenis.stop();
+    }
+    try{history.replaceState(null,'','#case-'+id)}catch(e){}
+  }
+  function closeCase(){
+    if(!dlg.open||dlg.classList.contains('closing'))return;
+    function done(){dlg.classList.remove('closing');if(dlg.close)dlg.close();else dlg.removeAttribute('open');onClose()}
+    if(reduce)done();else{dlg.classList.add('closing');setTimeout(done,650)}
+  }
+  function onClose(){if(!root.classList.contains('modal-open'))return;root.classList.remove('modal-open');lenis&&lenis.start();try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+  dlg.addEventListener('close',onClose);
+  dlg.addEventListener('cancel',function(e){e.preventDefault();closeCase()});
+  $('#cvClose').addEventListener('click',closeCase);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-case]');if(a&&!e.target.closest('a[target="_blank"]')){e.preventDefault();openCase(a.dataset.case)}});
+  $$('.cc[data-case]').forEach(function(c){c.addEventListener('keydown',function(e){if(e.target===c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openCase(c.dataset.case)}})});
+  sc.addEventListener('scroll',function(){var h=sc.scrollHeight-sc.clientHeight;prog.style.transform='scaleX('+(h>0?sc.scrollTop/h:0)+')'},{passive:true});
+  var hcase=location.hash.replace('#case-','');if(names[hcase])openCase(hcase);
+})();
+</script>
+</body>
+</html>
