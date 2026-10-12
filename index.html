@@ -399,13 +399,16 @@ html.modal-open .cursor{display:none}
 .ti{width:24px;height:24px;flex-shrink:0;background:var(--c);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
 .lg{width:24px;height:24px;object-fit:contain;flex-shrink:0}
 .lg.sq{border-radius:6px}
-.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.certs{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.certs>.cert{grid-column:span 2}
+.certs>.cert:nth-child(4){grid-column:2/4}
+.certs>.cert:nth-child(5){grid-column:4/6}
 .cert{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:14px;min-height:260px}
 .cert-logo{align-self:flex-start;height:60px;padding:0 18px;border-radius:16px;background:#fff;display:grid;place-items:center;margin-bottom:auto}
 .cert-logo img{display:block;width:auto;max-width:110px}
 .cert h3{font:400 clamp(26px,2.2vw,32px)/1.12 var(--serif);letter-spacing:-.01em;margin-top:28px}
 .cert p{margin:0;color:var(--accent-text)}
-@media (max-width:900px){.skills,.certs{grid-template-columns:1fr}.cert{min-height:0}}
+@media (max-width:900px){.skills{grid-template-columns:1fr}.certs{grid-template-columns:1fr}.certs>.cert,.certs>.cert:nth-child(n){grid-column:auto}.cert{min-height:0}}
 
 /* ---------- process ---------- */
 .steps-wrap{position:relative}
@@ -838,6 +841,16 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
         <span class="cert-logo"><img src="images/icons/udemy.svg" alt="Udemy" height="30"></span>
         <h3>Figma UI/UX Design Essentials</h3>
         <p class="mono">Udemy</p>
+      </article>
+      <article class="cert glow-card" data-r>
+        <span class="cert-logo"><img src="images/icons/anthropic.svg" alt="Anthropic" height="30" width="30"></span>
+        <h3>Claude Academy: Claude 101</h3>
+        <p class="mono">Anthropic · Sep 2026</p>
+      </article>
+      <article class="cert glow-card" data-r style="--d:.08s">
+        <span class="cert-logo"><img src="images/icons/anthropic.svg" alt="Anthropic" height="30" width="30"></span>
+        <h3>Claude Academy: Claude Code 101</h3>
+        <p class="mono">Anthropic · Sep 2026</p>
       </article>
     </div>
   </div>
