@@ -456,6 +456,7 @@ html.modal-open .cursor{display:none}
 .clist a dd{display:inline-flex;gap:6px;transition:color .3s}
 .clist a:hover dd{color:var(--accent-text)}
 @media (max-width:760px){.clist{grid-template-columns:1fr 1fr}.mail-row .btn{margin-left:0}}
+@media (max-width:440px){.clist{grid-template-columns:1fr}.clist dd{overflow-wrap:anywhere}}
 footer{border-top:1px solid var(--line);padding-block:28px 36px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:400 12px/1.6 var(--mono);color:var(--faint)}
 .totop{background:none;border:0;cursor:pointer;color:var(--muted);font:inherit;display:flex;gap:8px;align-items:center}
@@ -509,7 +510,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
 .flow span{font:500 13px/1 var(--mono);padding:14px 16px;border:1px solid var(--line-2);border-radius:14px;background:var(--card)}
 .flow i{color:var(--accent-text);font-style:normal}
 .next{margin-top:96px;padding:40px 0 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.next .btn{height:60px;font-size:16px}
+.next .btn{height:auto;min-height:60px;padding-block:10px;font-size:16px;white-space:normal;text-align:left;max-width:100%}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -576,7 +577,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
         <span class="ln" aria-hidden="true"><span>data <em>easy</em></span></span>
         <span class="ln" aria-hidden="true"><span>to read.</span></span>
       </h1>
-      <p class="lede" data-intro style="--d:.45s">Designer with a computer science degree and three years in enterprise IT. I design <strong>dashboards, maps and workflows</strong> for complex products, and prototype them in working code with AI tools so people can click through an idea before it is built.</p>
+      <p class="lede" data-intro style="--d:.45s">Designer with a computer science degree and three years in enterprise IT. I design <strong>dashboards, maps and workflows</strong> for an AI-enabled governance, risk and compliance (GRC) SaaS platform used by <strong>government clients in Oman and Saudi Arabia</strong>, and prototype them in working code with AI tools so people can click through an idea before it is built.</p>
       <div class="cta" data-intro style="--d:.6s">
         <a class="btn primary mag" href="#work" data-cursor="Scroll"><span class="lbl">See case studies</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5"/></svg></span></a>
         <a class="btn plain mag" href="#contact"><span class="lbl">Get in touch</span></a>
@@ -616,7 +617,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
   <div class="stat" data-r><b data-count="5">5<sup>+</sup></b><span>years designing, as a hobby and freelance, because I love it</span></div>
   <div class="stat" data-r style="--d:.08s"><b data-count="1">1</b><span>year of professional design work</span></div>
   <div class="stat" data-r style="--d:.16s"><b data-count="3">3<sup>+</sup></b><span>years in enterprise IT and ERP</span></div>
-  <div class="stat" data-r style="--d:.24s"><b class="word">GRC <em>&amp;</em> ERP</b><span>domain specialised</span></div>
+  <div class="stat" data-r style="--d:.24s"><b class="word">GRC <em>&amp;</em> ERP</b><span>domain specialised, for government and enterprise clients</span></div>
 </div>
 
 <!-- ================= ABOUT ================= -->
@@ -626,7 +627,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
     <p class="scrub" id="scrub">I started on the other side of the screen, supporting warehouse systems at Infosys and running IT and ERP in Dubai. Seeing every day which screens slowed people down is what pulled me into <em>design.</em></p>
     <div class="about">
       <div class="about-copy">
-        <p data-r>At <strong>Jethur</strong>, an AI-enabled governance, risk and compliance platform, I design the dashboards and workflows that compliance teams use to understand risk at a glance.</p>
+        <p data-r>At <strong>Jethur</strong>, an AI-enabled governance, risk and compliance platform used by government clients in Oman and Saudi Arabia, I design the dashboards and workflows that compliance teams use to understand risk at a glance.</p>
         <p data-r>Before that, at <strong>Al Moosawi Trading</strong> in Dubai, I was the first on-site IT and ERP person. At <strong>Infosys</strong> I supported a US retail client's warehouse systems and automated their SQL reports.</p>
         <p data-r>Design has been with me the whole way. For more than five years I've designed as a hobby and as a freelancer in my free time, simply because I love it.</p>
         <p data-r>I like dense, serious data. My job is to make it calm. I usually prototype in HTML with AI tools, so clients and developers can test a real screen instead of a static picture.</p>
@@ -638,7 +639,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
           <div class="fact"><dt>Focus</dt><dd>Enterprise SaaS, dashboards, design systems</dd></div>
           <div class="fact"><dt>Education</dt><dd>BE Computer Science, Sahyadri College of Engineering</dd></div>
           <div class="fact"><dt>Certified</dt><dd>Google UX Design Foundations · IBM Enterprise Design Thinking Practitioner · Figma UI/UX Design Essentials (Udemy)</dd></div>
-          <div class="fact"><dt>Languages</dt><dd>English, Hindi, Malayalam</dd></div>
+          <div class="fact"><dt>Languages</dt><dd>English, Hindi, Malayalam, Arabic</dd></div>
         </dl>
       </div>
     </div>
@@ -664,7 +665,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
             <div>
               <div class="cc-num"><b>01</b><span class="mono">GRC · Data viz · Maps</span></div>
               <h3>Base Watch: one map for 13 bases</h3>
-              <p>A risk dashboard built around an interactive map. Each base shows its risk at a glance, and a click opens its heatmap, corrective actions and compliance progress.</p>
+              <p>Risk monitoring dashboard for a Saudi government client, covering 13 bases. Built around an interactive map: each base shows its risk at a glance, and a click opens its heatmap, corrective actions and compliance progress.</p>
             </div>
             <dl class="kv"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Type</dt><dd>Concept</dd></div><div><dt>Built as</dt><dd>Figma prototype</dd></div></dl>
             <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener" data-cursor="Dribbble">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
@@ -739,8 +740,8 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
       <div class="xp-item open">
         <button class="xp-head" aria-expanded="true"><span class="xp-when">May 2026 – Present</span><span class="xp-role">UI/UX Designer</span><span class="xp-co">Jethur GRC · Riyadh, Saudi Arabia (remote)</span><span class="xp-plus" aria-hidden="true"></span></button>
         <div class="xp-body"><div><ul>
-          <li>Contributed to the design of Jethur, an AI-enabled GRC platform, and played an important role in designing Jethur V2, including the Access Governance and Compliance modules and the AI Configuration settings.</li>
-          <li>Designed data-heavy GRC dashboards, including a 25-KPI Risk Management dashboard, Segregation of Duties, Access Governance and ISO 27001 assessment, using heatmaps, gauges, drilldowns and pivotable tables.</li>
+          <li>Contributed to the design of Jethur, an AI-enabled GRC platform used by government clients in Oman and Saudi Arabia, and played an important role in designing Jethur V2, including the Access Governance and Compliance modules and the AI Configuration settings.</li>
+          <li>Designed data-heavy GRC dashboards for government clients in Oman and Saudi Arabia, including a 25-KPI Risk Management dashboard, Segregation of Duties, Access Governance and ISO 27001 assessment, using heatmaps, gauges, drilldowns and pivotable tables.</li>
           <li>Designed Base Watch, an interactive risk map for 13 bases with 3D, hex and outline map styles and views by access level.</li>
           <li>Worked with cross-functional teams from BRDs and process specs, and flagged BRD gaps inside prototypes so open questions were visible before build.</li>
           <li>Delivered rapid prototypes of GRC screens and workflows for client review, using AI tools, and turned client change requests around within the same day.</li>
@@ -939,7 +940,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
 <template id="t-base-watch">
   <p class="eyebrow">Case study 01 · Concept based on a real client request</p>
   <h2>Base Watch: one map for <em>13</em> bases</h2>
-  <p class="intro">A client asked for a way to see risk across 13 bases. I designed this portfolio concept around that real request: it turns 13 separate dashboards into one map that answers "where should I look first?" and then lets you drill in.</p>
+  <p class="intro">Risk monitoring dashboard for a Saudi government client, covering 13 bases. I designed this portfolio concept around that real request: it turns 13 separate dashboards into one map that answers "where should I look first?" and then lets you drill in.</p>
   <dl class="overview"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Type</dt><dd>Concept, based on a real request</dd></div><div><dt>Deliverable</dt><dd>Figma prototype</dd></div><div><dt>Tools</dt><dd>Figma</dd></div></dl>
   <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
   <figure><video class="auto" muted loop playsinline controls preload="metadata" poster="images/base-watch.jpg" aria-label="Base Watch demo"><source src="video/base-watch-demo.mp4" type="video/mp4"></video><figcaption>The map is the front door. Each pin is a base, coloured by its current risk level.</figcaption></figure>
