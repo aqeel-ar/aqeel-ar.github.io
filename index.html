@@ -327,6 +327,7 @@ html.modal-open .cursor{display:none}
 .drib:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 .drib:hover svg{transform:translate(2px,-2px)}
 .cv-body>.drib{margin-top:24px}
+.cv-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
 .cv-body figure video{width:100%;display:block;background:var(--card-2)}
 .cc-img .tag{position:absolute;left:16px;top:16px;z-index:1;font:500 12px/1 var(--body);background:var(--overlay);backdrop-filter:blur(10px);padding:10px 14px;border-radius:999px;border:1px solid var(--line)}
 @media (max-width:860px){.case-card{position:relative;top:0}.cc{grid-template-columns:1fr;min-height:0}.cc-img{order:-1;aspect-ratio:4/3;min-height:0}.kv{grid-template-columns:1fr 1fr}}
@@ -942,7 +943,10 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
   <h2>Base Watch: one map for <em>13</em> bases</h2>
   <p class="intro">Risk monitoring dashboard for a Saudi government client, covering 13 bases. I designed this portfolio concept around that real request: it turns 13 separate dashboards into one map that answers "where should I look first?" and then lets you drill in.</p>
   <dl class="overview"><div><dt>Role</dt><dd>UI/UX Designer</dd></div><div><dt>Type</dt><dd>Concept, based on a real request</dd></div><div><dt>Deliverable</dt><dd>Figma prototype</dd></div><div><dt>Tools</dt><dd>Figma</dd></div></dl>
-  <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+  <div class="cv-links">
+    <a class="btn primary" href="base-watch/" target="_blank" rel="noopener"><span class="lbl">Open live prototype</span><span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></span></a>
+    <a class="drib" href="https://dribbble.com/shots/27779878-Base-Watch-Interactive-Risk-Dashboard-Case-Study" target="_blank" rel="noopener">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+  </div>
   <figure><video class="auto" muted loop playsinline controls preload="metadata" poster="images/base-watch.jpg" aria-label="Base Watch demo"><source src="video/base-watch-demo.mp4" type="video/mp4"></video><figcaption>The map is the front door. Each pin is a base, coloured by its current risk level.</figcaption></figure>
   <h3>The problem</h3>
   <p>The client's risk information lived in <strong>13 base-level dashboards</strong>. Each one was useful on its own, but there was no single view that showed all 13 side by side.</p>
