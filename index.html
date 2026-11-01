@@ -333,28 +333,47 @@ html.modal-open .cursor{display:none}
 .cc-img .tag{position:absolute;left:16px;top:16px;z-index:1;font:500 12px/1 var(--body);background:var(--overlay);backdrop-filter:blur(10px);padding:10px 14px;border-radius:999px;border:1px solid var(--line)}
 @media (max-width:860px){.case-card{position:relative;top:0}.cc{grid-template-columns:1fr;min-height:0}.cc-img{order:-1;aspect-ratio:4/3;min-height:0}.kv{grid-template-columns:1fr 1fr}}
 
-/* ---------- horizontal ---------- */
-.hs{padding-block:clamp(48px,6vw,96px) clamp(96px,12vw,160px)}
-.hs-pin{overflow:hidden}
-.hs-track{display:flex;gap:20px;padding-inline:var(--gut);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.hs-track::-webkit-scrollbar{display:none}
-.hs-on{padding:0}
-.hs-on .hs-pin{height:100vh;display:flex;flex-direction:column;justify-content:center}
-.hs-on .hs-track{overflow:visible;width:max-content;padding-inline:max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut))) var(--gut)}
-.hs-intro{flex:0 0 clamp(280px,30vw,440px);display:flex;flex-direction:column;justify-content:space-between;padding-right:clamp(16px,3vw,48px);scroll-snap-align:start}
-.hs-intro p{color:var(--muted);max-width:32ch;margin:24px 0 0}
-.hs-progress{height:2px;background:var(--line);margin-top:32px;max-width:240px;overflow:hidden}
-.hs-progress i{display:block;height:100%;background:var(--accent-text);transform:scaleX(0);transform-origin:left}
-.mini{flex:0 0 clamp(280px,34vw,500px);scroll-snap-align:start;display:flex;flex-direction:column;gap:18px}
-.mini .im{aspect-ratio:4/3;border-radius:24px;overflow:hidden;background:var(--card-2);border:1px solid var(--line)}
-.mini img,.mini video{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.mini:hover img,.mini:hover video{transform:scale(1.06)}
-.mini .out{display:inline-block;font-size:.75em;color:var(--accent-text);transition:background .4s,color .4s}
-.mini:hover .out{transform:translate(3px,-3px)}
-.mini .mt{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.mini h4{font-size:clamp(22px,2vw,28px);letter-spacing:-.03em}
-.mini p{margin:6px 0 0;color:var(--muted);font-size:15px;max-width:40ch}
-@media (max-width:860px){.hs-intro{flex-basis:78vw;justify-content:flex-start}.hs-progress{display:none}}
+/* ---------- more work: grouped by category ---------- */
+.wk-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.wk-nav a{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);font:500 14px/1 var(--body);transition:background .4s var(--ease),color .4s,border-color .4s}
+.wk-nav a span{font:500 11px/1 var(--mono);color:var(--faint);transition:color .4s}
+.wk-nav a:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.wk-nav a:hover span{color:inherit;opacity:.6}
+.wk-group+.wk-group{margin-top:clamp(72px,9vw,128px)}
+.wk-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3vw,40px);padding-bottom:20px;border-bottom:1px solid var(--line)}
+.wk-head h3{font-size:clamp(30px,4vw,56px);line-height:1;letter-spacing:-.045em}
+.wk-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.wk{position:relative;display:flex;flex-direction:column;grid-column:span 2;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;transition:border-color .4s,transform .7s var(--ease)}
+.wk.s3{grid-column:span 3}.wk.s4{grid-column:span 4}.wk.s6{grid-column:1/-1}
+.wk:hover{border-color:var(--line-2)}
+.wk-media{display:grid;gap:2px;background:var(--line)}
+.wk-media.duo{grid-template-columns:1fr 1fr}
+.wk-m{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--card-2)}
+.wk-m img,.wk-m video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.wk:hover .wk-m img,.wk:hover .wk-m video{transform:scale(1.04)}
+.wk-m .tag{position:absolute;left:14px;top:14px;z-index:1;font:500 12px/1 var(--body);background:var(--overlay);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:9px 12px;border-radius:999px;border:1px solid var(--line)}
+.wk-body{display:flex;flex-direction:column;gap:10px;flex:1;padding:clamp(20px,2.2vw,30px)}
+.wk-body .mt{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 12px}
+.wk-body .mt .mono{white-space:nowrap}
+.wk-body h4{font-size:clamp(22px,2vw,30px);letter-spacing:-.035em}
+.wk-body p{margin:0;color:var(--muted);font-size:15px;max-width:56ch}
+.wk .out{display:inline-block;font-size:.75em;color:var(--accent-text);transition:transform .5s var(--ease)}
+.wk:hover .out{transform:translate(3px,-3px)}
+.wk .drib{align-self:flex-start;margin-top:auto}
+.wk:hover .drib{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.wk:hover .drib svg{transform:translate(2px,-2px)}
+/* featured card: media left, text right */
+.wk.feature{grid-column:1/-1;flex-direction:row;border-radius:32px}
+.wk.feature .wk-media{flex:1.35;display:block;background:none}
+.wk.feature .wk-m{height:100%;min-height:360px}
+.wk.feature .wk-body{flex:1;justify-content:center;gap:16px;padding:clamp(28px,4vw,64px)}
+.wk.feature h4{font-size:clamp(34px,4.4vw,64px);line-height:1;letter-spacing:-.05em}
+.wk.feature .wk-body p{font-size:clamp(16px,1.4vw,19px)}
+.wk.feature .drib{margin-top:12px}
+.wk-badge{align-self:flex-start;display:inline-flex;align-items:center;font:600 12px/1 var(--body);padding:9px 14px;border-radius:999px;background:var(--grad);color:var(--accent-ink)}
+@media (max-width:1000px){.wk,.wk.s4{grid-column:1/-1}.wk.s3{grid-column:span 3}}
+@media (max-width:860px){.wk.feature{flex-direction:column}.wk.feature .wk-m{height:auto;min-height:0}}
+@media (max-width:700px){.wk.s3{grid-column:1/-1}.wk-media.duo{grid-template-columns:1fr}.wk-head .mono{display:none}.wk-nav{justify-content:flex-start}}
 
 /* ---------- experience ---------- */
 .xp{border-top:1px solid var(--line)}
@@ -713,22 +732,83 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
   </div>
 </section>
 
-<!-- ================= MORE WORK (horizontal) ================= -->
-<section class="hs" id="more">
-  <div class="hs-pin">
-    <div class="hs-track" id="hsTrack">
-      <div class="hs-intro">
-        <div>
-          <p class="label mono"><b>(03)</b> More work</p>
-          <h2 class="h2" style="font-size:clamp(44px,5.4vw,88px)">More <em>projects</em></h2>
-          <p>Web, mobile and dashboard work, from product screens to landing pages.</p>
-        </div>
-        <div class="hs-progress"><i id="hsProg"></i></div>
+<!-- ================= MORE WORK (by category) ================= -->
+<section class="sec" id="more" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <p class="label mono" data-r><b>(03)</b> More work</p>
+        <h2 class="h2" data-r="lines"><span class="ln"><span>More</span></span><span class="ln"><span><em>projects</em></span></span></h2>
       </div>
-      <a class="mini" href="https://dribbble.com/shots/27780032-Mobile-Bike-App" data-dribbble="ebike-app" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><img src="images/pedal-s1.jpg" alt="Pedal S1 eBike app screens" loading="lazy"></div><div><div class="mt"><h4>Pedal S1 eBike App <span class="out">↗</span></h4><span class="mono">Mobile app</span></div><p>Home, navigation and product browsing for an electric bike brand.</p></div></a>
-      <a class="mini" href="https://dribbble.com/shots/27786394-Industrial-Website-Hero-Section-with-Scroll-Animation" data-dribbble="moosawi-landing" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><video class="auto" muted loop playsinline preload="metadata" poster="images/industrial-hero.jpg" aria-label="Moosawi landing page demo"><source src="video/moosawi-landing-page.mp4" type="video/mp4"></video></div><div><div class="mt"><h4>Moosawi Landing Page <span class="out">↗</span></h4><span class="mono">Web · Motion</span></div><p>A scroll-driven hero with 3D product visuals for an industrial supplier.</p></div></a>
-      <a class="mini" href="https://dribbble.com/shots/27786341-Business-Consulting-Website-Landing-Page" data-dribbble="arcconsulting" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><video class="auto" muted loop playsinline preload="metadata" poster="images/arcconsulting.jpg" aria-label="ArcConsulting landing page demo"><source src="video/arcconsulting.mp4" type="video/mp4"></video></div><div><div class="mt"><h4>ArcConsulting Revamp <span class="out">↗</span></h4><span class="mono">Landing page</span></div><p>A bold new landing page for a consulting firm serving the UAE and GCC.</p></div></a>
-      <a class="mini" href="https://dribbble.com/shots/27782007-Audit-Dashboard-for-GRC-Softwares" data-dribbble="audit-dashboard" target="_blank" rel="noopener" data-cursor="Dribbble"><div class="im"><img src="images/audit-dashboard.jpg" alt="Audit dashboard for GRC software" loading="lazy"></div><div><div class="mt"><h4>Audit Dashboard <span class="out">↗</span></h4><span class="mono">B2B dashboard</span></div><p>Total audits, findings by severity and overdue actions on one scannable page.</p></div></a>
+      <nav class="wk-nav" data-r aria-label="Project categories">
+        <a href="#landing">Landing pages &amp; heroes <span>03</span></a>
+        <a href="#dashboards">Dashboards &amp; apps <span>03</span></a>
+      </nav>
+    </div>
+
+    <!-- Landing pages & hero sections -->
+    <div class="wk-group" id="landing">
+      <div class="wk-head" data-r><h3>Landing pages <em>&amp; hero sections</em></h3><span class="mono">03 projects</span></div>
+      <div class="wk-grid">
+        <a class="wk feature" href="https://dribbble.com/shots/27786394-Industrial-Website-Hero-Section-with-Scroll-Animation" data-dribbble="moosawi-landing" target="_blank" rel="noopener" data-cursor="Dribbble" data-r>
+          <div class="wk-media"><figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" poster="images/industrial-hero.jpg" aria-label="Moosawi landing page: scroll-driven hero section"><source src="video/moosawi-landing-page.mp4" type="video/mp4"></video></figure></div>
+          <div class="wk-body">
+            <span class="wk-badge">Featured · Hero section</span>
+            <span class="mono">Landing page · Scroll animation</span>
+            <h4>Moosawi Landing Page <span class="out">↗</span></h4>
+            <p>A scroll-driven hero with 3D product visuals for an industrial supplier.</p>
+            <span class="drib">View on Dribbble <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></span>
+          </div>
+        </a>
+        <a class="wk s4" href="https://dribbble.com/shots/27854703-Restaurant-Website-Hero-Section-and-Online-Ordering-UI" data-dribbble="qasas-al-arab" target="_blank" rel="noopener" data-cursor="Dribbble" data-r>
+          <div class="wk-media duo">
+            <figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" aria-label="Qasas Al Arab restaurant website: hero section"><source src="video/qasas-hero.mp4#t=0.1" type="video/mp4"></video><figcaption class="tag">Hero</figcaption></figure>
+            <figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" aria-label="Qasas Al Arab restaurant website: menu and ordering"><source src="video/qasas-ordering.mp4#t=0.1" type="video/mp4"></video><figcaption class="tag">Ordering</figcaption></figure>
+          </div>
+          <div class="wk-body">
+            <div class="mt"><h4>Qasas Al Arab <span class="out">↗</span></h4><span class="mono">Restaurant website</span></div>
+            <p>A restaurant website with a hero that leads with the food, a menu organised by category, and a quick ordering flow.</p>
+          </div>
+        </a>
+        <a class="wk" href="https://dribbble.com/shots/27786341-Business-Consulting-Website-Landing-Page" data-dribbble="arcconsulting" target="_blank" rel="noopener" data-cursor="Dribbble" data-r style="--d:.08s">
+          <div class="wk-media"><figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" poster="images/arcconsulting.jpg" aria-label="ArcConsulting landing page demo"><source src="video/arcconsulting.mp4" type="video/mp4"></video></figure></div>
+          <div class="wk-body">
+            <div class="mt"><h4>ArcConsulting Revamp <span class="out">↗</span></h4><span class="mono">Landing page</span></div>
+            <p>A bold new landing page for a consulting firm serving the UAE and GCC.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Dashboards & apps -->
+    <div class="wk-group" id="dashboards">
+      <div class="wk-head" data-r><h3>Dashboards <em>&amp; apps</em></h3><span class="mono">03 projects</span></div>
+      <div class="wk-grid">
+        <a class="wk s6" href="https://dribbble.com/shots/27854586-Live-Tracking-Screen-for-Fleet-Management-System" data-dribbble="fleet-live-tracking" target="_blank" rel="noopener" data-cursor="Dribbble" data-r>
+          <div class="wk-media duo">
+            <figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" aria-label="Fleet management dashboard: live tracking screen"><source src="video/fleet-tracking.mp4#t=0.1" type="video/mp4"></video><figcaption class="tag">Live tracking</figcaption></figure>
+            <figure class="wk-m"><video class="auto" muted loop playsinline preload="metadata" aria-label="Fleet management dashboard: Fleet AI in the sidebar"><source src="video/fleet-ai.mp4#t=0.1" type="video/mp4"></video><figcaption class="tag">Fleet AI</figcaption></figure>
+          </div>
+          <div class="wk-body">
+            <div class="mt"><h4>Fleet Live Tracking <span class="out">↗</span></h4><span class="mono">Fleet management dashboard</span></div>
+            <p>A live tracking screen for a fleet management dashboard: vehicles on the map, status filters along the top, a vehicle list grouped by status, and a detail panel for each vehicle. Fleet AI sits right in the sidebar.</p>
+          </div>
+        </a>
+        <a class="wk s3" href="https://dribbble.com/shots/27782007-Audit-Dashboard-for-GRC-Softwares" data-dribbble="audit-dashboard" target="_blank" rel="noopener" data-cursor="Dribbble" data-r>
+          <div class="wk-media"><figure class="wk-m"><img src="images/audit-dashboard.jpg" alt="Audit dashboard for GRC software" loading="lazy"></figure></div>
+          <div class="wk-body">
+            <div class="mt"><h4>Audit Dashboard <span class="out">↗</span></h4><span class="mono">B2B dashboard</span></div>
+            <p>Total audits, findings by severity and overdue actions on one scannable page.</p>
+          </div>
+        </a>
+        <a class="wk s3" href="https://dribbble.com/shots/27780032-Mobile-Bike-App" data-dribbble="ebike-app" target="_blank" rel="noopener" data-cursor="Dribbble" data-r style="--d:.08s">
+          <div class="wk-media"><figure class="wk-m"><img src="images/pedal-s1.jpg" alt="Pedal S1 eBike app screens" loading="lazy"></figure></div>
+          <div class="wk-body">
+            <div class="mt"><h4>Pedal S1 eBike App <span class="out">↗</span></h4><span class="mono">Mobile app</span></div>
+            <p>Home, navigation and product browsing for an electric bike brand.</p>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1243,14 +1323,6 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
         gsap.to($('.cc',card),{scale:.92,ease:'none',scrollTrigger:{trigger:next,start:'top bottom',end:'top '+(96+(i+1)*16)+'px',scrub:true}});
         gsap.to($('.cc-shade',card),{opacity:.55,ease:'none',scrollTrigger:{trigger:next,start:'top bottom',end:'top '+(96+(i+1)*16)+'px',scrub:true}});
       });
-
-      /* horizontal "more work" */
-      var sec=$('#more'),track=$('#hsTrack');
-      sec.classList.add('hs-on');
-      function dist(){return Math.max(0,track.scrollWidth-innerWidth)}
-      gsap.to(track,{x:function(){return -dist()},ease:'none',scrollTrigger:{trigger:sec,start:'top top',end:function(){return '+='+dist()},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1,
-        onUpdate:function(self){$('#hsProg').style.transform='scaleX('+self.progress+')'}}});
-      return function(){sec.classList.remove('hs-on')};
     });
 
     /* process line */
