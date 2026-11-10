@@ -448,6 +448,7 @@ html.modal-open .cursor{display:none}
 /* ---------- contact ---------- */
 .contact{position:relative;padding-block:clamp(96px,13vw,180px) clamp(40px,5vw,64px);overflow:hidden;border-top:1px solid var(--line)}
 .contact .glow{position:absolute;left:50%;top:40%;width:80vw;height:80vw;max-width:1100px;max-height:1100px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 60%);pointer-events:none;opacity:.35}
+#field2{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 45%,#000 30%,transparent 85%);mask-image:radial-gradient(ellipse 85% 75% at 50% 45%,#000 30%,transparent 85%)}
 .contact h2{font-size:clamp(56px,11vw,190px);line-height:.88;letter-spacing:-.06em}
 .contact-lede{color:var(--muted);font-size:clamp(17px,1.4vw,20px);max-width:48ch;margin:36px 0 48px}
 .mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding-block:28px;border-block:1px solid var(--line)}
@@ -970,6 +971,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
   <div class="glow" aria-hidden="true"></div>
+  <canvas id="field2" aria-hidden="true"></canvas>
   <div class="wrap" style="position:relative">
     <p class="label mono" data-r><b>(09)</b> Contact</p>
     <h2 data-r="lines"><span class="ln"><span>Let's make</span></span><span class="ln"><span>something <em>clear.</em></span></span></h2>
@@ -1195,7 +1197,7 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
     dotHi=cs.getPropertyValue('--dot-hi').trim();dotLo=cs.getPropertyValue('--dot').trim();dotA=cs.getPropertyValue('--dot-a').trim();
     metaTheme.setAttribute('content',cs.getPropertyValue('--bg').trim());
     themeBtn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
-    dirty=true;
+    dirty=true;dirty2=true;
   }
   readTheme();
   var curTheme=root.getAttribute('data-theme');
@@ -1238,6 +1240,33 @@ dialog.cv.closing{animation:cvOut .7s var(--ease) both}
       if(dp>.001){px+=(tpx-px)*.07;py+=(tpy-py)*.07;stage.style.setProperty('--px',px.toFixed(4));stage.style.setProperty('--py',py.toFixed(4))}
     }
     requestAnimationFrame(loop);
+  })();
+
+  /* ---------- contact: dot field (same hover effect as the hero) ---------- */
+  var cSec=$('#contact'),cCv=$('#field2'),cCtx=cCv.getContext('2d');
+  var cW=0,cH=0,cmx=-1e3,cmy=-1e3,ctx2=-1e3,cty=-1e3,camp=0,ctamp=0,cOn=false;
+  function cSize(){var d=Math.min(devicePixelRatio||1,2);cW=cSec.clientWidth;cH=cSec.clientHeight;cCv.width=cW*d;cCv.height=cH*d;cCtx.setTransform(d,0,0,d,0,0);dirty2=true}
+  var dirty2=true;
+  function cDraw(){
+    cCtx.clearRect(0,0,cW,cH);var g=cW<600?24:30,R=220;
+    for(var y=g/2;y<cH;y+=g)for(var x=g/2;x<cW;x+=g){
+      var d=Math.hypot(x-cmx,y-cmy),f=Math.max(0,1-d/R)*camp;
+      if(f>0){cCtx.fillStyle='rgba('+dotHi+','+(.1+f*.8)+')';var sz=1.2+f*2.2;cCtx.fillRect(x-sz/2,y-sz/2,sz,sz)}
+      else{cCtx.fillStyle='rgba('+dotLo+','+dotA+')';cCtx.fillRect(x-.6,y-.6,1.2,1.2)}
+    }
+  }
+  cSize();addEventListener('resize',cSize);
+  if(fine&&!reduce){
+    cSec.addEventListener('pointermove',function(e){var b=cSec.getBoundingClientRect();ctx2=e.clientX-b.left;cty=e.clientY-b.top;if(cmx<-500){cmx=ctx2;cmy=cty}ctamp=1});
+    cSec.addEventListener('pointerleave',function(){ctamp=0});
+  }
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){cOn=es[0].isIntersecting;if(cOn){cSize()}}).observe(cSec);
+  (function cLoop(){
+    if(cOn){
+      var dm=Math.abs(ctx2-cmx)+Math.abs(cty-cmy)+Math.abs(ctamp-camp);
+      if(dm>.01||dirty2){cmx+=(ctx2-cmx)*.14;cmy+=(cty-cmy)*.14;camp+=(ctamp-camp)*.08;cDraw();dirty2=false}
+    }
+    requestAnimationFrame(cLoop);
   })();
 
   /* ---------- reveals ---------- */
